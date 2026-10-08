@@ -1,0 +1,329 @@
+{
+ "book": {
+  "id": "phy_g10",
+  "title": "الفيزياء · الصف العاشر",
+  "subject": "Physics",
+  "grade": 10
+ },
+ "nodes": [
+  {
+   "id": "phy_g10_u",
+   "book_id": "phy_g10",
+   "title": "الوحدة الأولى: الحركة في بُعد واحد",
+   "learning_objective": "يتعرّف الطالب على وصف الحركة.",
+   "level": "unit"
+  },
+  {
+   "id": "phy_g10_t",
+   "book_id": "phy_g10",
+   "title": "وصف الحركة",
+   "learning_objective": "يفهم الطالب وصف الحركة والعلاقات بين مفاهيمه.",
+   "level": "topic"
+  },
+  {
+   "id": "l_position",
+   "book_id": "phy_g10",
+   "title": "الموقع والإزاحة",
+   "learning_objective": "يتعرّف الطالب على الموقع والإزاحة.",
+   "level": "lesson"
+  },
+  {
+   "id": "position",
+   "book_id": "phy_g10",
+   "title": "الموقع",
+   "learning_objective": "مكان الجسم بالنسبة إلى نقطة إسناد على خط مستقيم، ويُقاس بالمتر.",
+   "level": "entity"
+  },
+  {
+   "id": "distance",
+   "book_id": "phy_g10",
+   "title": "المسافة",
+   "learning_objective": "طول المسار الكلي الذي يقطعه الجسم من موقع إلى آخر، وهي كمية قياسية.",
+   "level": "entity"
+  },
+  {
+   "id": "displacement",
+   "book_id": "phy_g10",
+   "title": "الإزاحة",
+   "learning_objective": "التغيّر في موقع الجسم من موقعه الابتدائي إلى موقعه النهائي، وهي كمية متجهة لها مقدار واتجاه.",
+   "level": "entity"
+  },
+  {
+   "id": "time",
+   "book_id": "phy_g10",
+   "title": "الزمن",
+   "learning_objective": "المدة التي تستغرقها الحركة، ويُقاس بالثانية.",
+   "level": "entity"
+  },
+  {
+   "id": "l_speed",
+   "book_id": "phy_g10",
+   "title": "السرعة والتسارع",
+   "learning_objective": "يتعرّف الطالب على السرعة والتسارع.",
+   "level": "lesson"
+  },
+  {
+   "id": "speed",
+   "book_id": "phy_g10",
+   "title": "السرعة المتوسطة",
+   "learning_objective": "المسافة الكلية مقسومة على الزمن الكلي، وتُقاس بوحدة متر لكل ثانية (م/ث).",
+   "level": "entity"
+  },
+  {
+   "id": "velocity",
+   "book_id": "phy_g10",
+   "title": "السرعة المتجهة",
+   "learning_objective": "الإزاحة مقسومة على الزمن، ولها مقدار واتجاه.",
+   "level": "entity"
+  },
+  {
+   "id": "accel",
+   "book_id": "phy_g10",
+   "title": "التسارع",
+   "learning_objective": "معدل تغيّر السرعة المتجهة مع الزمن، ويُقاس بوحدة م/ث².",
+   "level": "entity"
+  },
+  {
+   "id": "freefall",
+   "book_id": "phy_g10",
+   "title": "السقوط الحر",
+   "learning_objective": "حركة جسم تحت تأثير الجاذبية فقط، بتسارع ثابت مقداره 9.8 م/ث² تقريباً.",
+   "level": "entity"
+  }
+ ],
+ "relationships": [
+  {
+   "id": "phy_g10_r_t",
+   "source_node_id": "phy_g10_t",
+   "target_node_id": "phy_g10_u",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "phy_g10_r_l_position",
+   "source_node_id": "l_position",
+   "target_node_id": "phy_g10_t",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "phy_g10_r_position",
+   "source_node_id": "position",
+   "target_node_id": "l_position",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "phy_g10_r_distance",
+   "source_node_id": "distance",
+   "target_node_id": "l_position",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "phy_g10_r_displacement",
+   "source_node_id": "displacement",
+   "target_node_id": "l_position",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "phy_g10_r_time",
+   "source_node_id": "time",
+   "target_node_id": "l_position",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "phy_g10_r_l_speed",
+   "source_node_id": "l_speed",
+   "target_node_id": "phy_g10_t",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "phy_g10_r_speed",
+   "source_node_id": "speed",
+   "target_node_id": "l_speed",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "phy_g10_r_velocity",
+   "source_node_id": "velocity",
+   "target_node_id": "l_speed",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "phy_g10_r_accel",
+   "source_node_id": "accel",
+   "target_node_id": "l_speed",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "phy_g10_r_freefall",
+   "source_node_id": "freefall",
+   "target_node_id": "l_speed",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "phy_g10_p0",
+   "source_node_id": "position",
+   "target_node_id": "distance",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "phy_g10_p1",
+   "source_node_id": "position",
+   "target_node_id": "displacement",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "phy_g10_p2",
+   "source_node_id": "distance",
+   "target_node_id": "speed",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "phy_g10_p3",
+   "source_node_id": "time",
+   "target_node_id": "speed",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "phy_g10_p4",
+   "source_node_id": "displacement",
+   "target_node_id": "velocity",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "phy_g10_p5",
+   "source_node_id": "time",
+   "target_node_id": "velocity",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "phy_g10_p6",
+   "source_node_id": "velocity",
+   "target_node_id": "accel",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "phy_g10_p7",
+   "source_node_id": "accel",
+   "target_node_id": "freefall",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  }
+ ],
+ "node_metadata": [
+  {
+   "node_id": "position",
+   "difficulty": "easy",
+   "estimated_minutes": 4,
+   "importance": 0.8
+  },
+  {
+   "node_id": "distance",
+   "difficulty": "easy",
+   "estimated_minutes": 5,
+   "importance": 0.8
+  },
+  {
+   "node_id": "displacement",
+   "difficulty": "medium",
+   "estimated_minutes": 6,
+   "importance": 0.8
+  },
+  {
+   "node_id": "time",
+   "difficulty": "easy",
+   "estimated_minutes": 3,
+   "importance": 0.8
+  },
+  {
+   "node_id": "speed",
+   "difficulty": "medium",
+   "estimated_minutes": 6,
+   "importance": 0.8
+  },
+  {
+   "node_id": "velocity",
+   "difficulty": "medium",
+   "estimated_minutes": 6,
+   "importance": 0.8
+  },
+  {
+   "node_id": "accel",
+   "difficulty": "hard",
+   "estimated_minutes": 7,
+   "importance": 0.8
+  },
+  {
+   "node_id": "freefall",
+   "difficulty": "hard",
+   "estimated_minutes": 7,
+   "importance": 0.8
+  }
+ ],
+ "node_content": [
+  {
+   "node_id": "position",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "مكان الجسم بالنسبة إلى نقطة إسناد على خط مستقيم، ويُقاس بالمتر."
+  },
+  {
+   "node_id": "distance",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "طول المسار الكلي الذي يقطعه الجسم من موقع إلى آخر، وهي كمية قياسية."
+  },
+  {
+   "node_id": "displacement",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "التغيّر في موقع الجسم من موقعه الابتدائي إلى موقعه النهائي، وهي كمية متجهة لها مقدار واتجاه."
+  },
+  {
+   "node_id": "time",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "المدة التي تستغرقها الحركة، ويُقاس بالثانية."
+  },
+  {
+   "node_id": "speed",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "المسافة الكلية مقسومة على الزمن الكلي، وتُقاس بوحدة متر لكل ثانية (م/ث)."
+  },
+  {
+   "node_id": "velocity",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "الإزاحة مقسومة على الزمن، ولها مقدار واتجاه."
+  },
+  {
+   "node_id": "accel",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "معدل تغيّر السرعة المتجهة مع الزمن، ويُقاس بوحدة م/ث²."
+  },
+  {
+   "node_id": "freefall",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "حركة جسم تحت تأثير الجاذبية فقط، بتسارع ثابت مقداره 9.8 م/ث² تقريباً."
+  }
+ ]
+}

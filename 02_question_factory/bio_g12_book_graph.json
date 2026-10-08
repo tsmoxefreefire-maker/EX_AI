@@ -1,0 +1,329 @@
+{
+ "book": {
+  "id": "bio_g12",
+  "title": "الأحياء · الصف الثاني عشر",
+  "subject": "Biology",
+  "grade": 12
+ },
+ "nodes": [
+  {
+   "id": "bio_g12_u",
+   "book_id": "bio_g12",
+   "title": "الوحدة الثالثة: الوراثة",
+   "learning_objective": "يتعرّف الطالب على الوراثة الجزيئية والمندلية.",
+   "level": "unit"
+  },
+  {
+   "id": "bio_g12_t",
+   "book_id": "bio_g12",
+   "title": "الوراثة الجزيئية والمندلية",
+   "learning_objective": "يفهم الطالب الوراثة الجزيئية والمندلية والعلاقات بين مفاهيمه.",
+   "level": "topic"
+  },
+  {
+   "id": "l_material",
+   "book_id": "bio_g12",
+   "title": "المادة الوراثية",
+   "learning_objective": "يتعرّف الطالب على المادة الوراثية.",
+   "level": "lesson"
+  },
+  {
+   "id": "dna",
+   "book_id": "bio_g12",
+   "title": "الحمض النووي (DNA)",
+   "learning_objective": "جزيء طويل على شكل سلّم ملتف يحمل المعلومات الوراثية للكائن الحي.",
+   "level": "entity"
+  },
+  {
+   "id": "gene",
+   "book_id": "bio_g12",
+   "title": "الجين",
+   "learning_objective": "جزء محدد من الحمض النووي DNA يحمل المعلومات اللازمة لصفة معيّنة.",
+   "level": "entity"
+  },
+  {
+   "id": "chromosome",
+   "book_id": "bio_g12",
+   "title": "الكروموسوم",
+   "learning_objective": "تركيب في نواة الخلية يتكوّن من الحمض النووي DNA ملتفاً حول بروتينات، ويحمل الجينات.",
+   "level": "entity"
+  },
+  {
+   "id": "allele",
+   "book_id": "bio_g12",
+   "title": "الأليل",
+   "learning_objective": "شكل من أشكال الجين نفسه، ولكل صفة أليلان: واحد من كل أب.",
+   "level": "entity"
+  },
+  {
+   "id": "l_traits",
+   "book_id": "bio_g12",
+   "title": "انتقال الصفات",
+   "learning_objective": "يتعرّف الطالب على انتقال الصفات.",
+   "level": "lesson"
+  },
+  {
+   "id": "dominant",
+   "book_id": "bio_g12",
+   "title": "الصفة السائدة",
+   "learning_objective": "صفة تظهر إذا وُجد أليلها مرة واحدة على الأقل، ويُرمز له بحرف كبير مثل A.",
+   "level": "entity"
+  },
+  {
+   "id": "recessive",
+   "book_id": "bio_g12",
+   "title": "الصفة المتنحية",
+   "learning_objective": "صفة لا تظهر إلا إذا وُجد أليلها مرتين، ويُرمز له بحرف صغير مثل a.",
+   "level": "entity"
+  },
+  {
+   "id": "genotype",
+   "book_id": "bio_g12",
+   "title": "الطراز الجيني",
+   "learning_objective": "زوج الأليلات الذي يحمله الفرد لصفة ما، مثل AA أو Aa أو aa.",
+   "level": "entity"
+  },
+  {
+   "id": "punnett",
+   "book_id": "bio_g12",
+   "title": "مربع بانيت",
+   "learning_objective": "جدول يُستخدم لتوقّع احتمالات الطرز الجينية للأبناء من أليلات الأبوين.",
+   "level": "entity"
+  }
+ ],
+ "relationships": [
+  {
+   "id": "bio_g12_r_t",
+   "source_node_id": "bio_g12_t",
+   "target_node_id": "bio_g12_u",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "bio_g12_r_l_material",
+   "source_node_id": "l_material",
+   "target_node_id": "bio_g12_t",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "bio_g12_r_dna",
+   "source_node_id": "dna",
+   "target_node_id": "l_material",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "bio_g12_r_gene",
+   "source_node_id": "gene",
+   "target_node_id": "l_material",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "bio_g12_r_chromosome",
+   "source_node_id": "chromosome",
+   "target_node_id": "l_material",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "bio_g12_r_allele",
+   "source_node_id": "allele",
+   "target_node_id": "l_material",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "bio_g12_r_l_traits",
+   "source_node_id": "l_traits",
+   "target_node_id": "bio_g12_t",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "bio_g12_r_dominant",
+   "source_node_id": "dominant",
+   "target_node_id": "l_traits",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "bio_g12_r_recessive",
+   "source_node_id": "recessive",
+   "target_node_id": "l_traits",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "bio_g12_r_genotype",
+   "source_node_id": "genotype",
+   "target_node_id": "l_traits",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "bio_g12_r_punnett",
+   "source_node_id": "punnett",
+   "target_node_id": "l_traits",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "bio_g12_p0",
+   "source_node_id": "dna",
+   "target_node_id": "gene",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "bio_g12_p1",
+   "source_node_id": "dna",
+   "target_node_id": "chromosome",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "bio_g12_p2",
+   "source_node_id": "gene",
+   "target_node_id": "allele",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "bio_g12_p3",
+   "source_node_id": "allele",
+   "target_node_id": "dominant",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "bio_g12_p4",
+   "source_node_id": "allele",
+   "target_node_id": "recessive",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "bio_g12_p5",
+   "source_node_id": "dominant",
+   "target_node_id": "genotype",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "bio_g12_p6",
+   "source_node_id": "recessive",
+   "target_node_id": "genotype",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "bio_g12_p7",
+   "source_node_id": "genotype",
+   "target_node_id": "punnett",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  }
+ ],
+ "node_metadata": [
+  {
+   "node_id": "dna",
+   "difficulty": "medium",
+   "estimated_minutes": 6,
+   "importance": 0.8
+  },
+  {
+   "node_id": "gene",
+   "difficulty": "medium",
+   "estimated_minutes": 6,
+   "importance": 0.8
+  },
+  {
+   "node_id": "chromosome",
+   "difficulty": "medium",
+   "estimated_minutes": 6,
+   "importance": 0.8
+  },
+  {
+   "node_id": "allele",
+   "difficulty": "medium",
+   "estimated_minutes": 6,
+   "importance": 0.8
+  },
+  {
+   "node_id": "dominant",
+   "difficulty": "medium",
+   "estimated_minutes": 5,
+   "importance": 0.8
+  },
+  {
+   "node_id": "recessive",
+   "difficulty": "medium",
+   "estimated_minutes": 5,
+   "importance": 0.8
+  },
+  {
+   "node_id": "genotype",
+   "difficulty": "hard",
+   "estimated_minutes": 6,
+   "importance": 0.8
+  },
+  {
+   "node_id": "punnett",
+   "difficulty": "hard",
+   "estimated_minutes": 7,
+   "importance": 0.8
+  }
+ ],
+ "node_content": [
+  {
+   "node_id": "dna",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "جزيء طويل على شكل سلّم ملتف يحمل المعلومات الوراثية للكائن الحي."
+  },
+  {
+   "node_id": "gene",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "جزء محدد من الحمض النووي DNA يحمل المعلومات اللازمة لصفة معيّنة."
+  },
+  {
+   "node_id": "chromosome",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "تركيب في نواة الخلية يتكوّن من الحمض النووي DNA ملتفاً حول بروتينات، ويحمل الجينات."
+  },
+  {
+   "node_id": "allele",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "شكل من أشكال الجين نفسه، ولكل صفة أليلان: واحد من كل أب."
+  },
+  {
+   "node_id": "dominant",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "صفة تظهر إذا وُجد أليلها مرة واحدة على الأقل، ويُرمز له بحرف كبير مثل A."
+  },
+  {
+   "node_id": "recessive",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "صفة لا تظهر إلا إذا وُجد أليلها مرتين، ويُرمز له بحرف صغير مثل a."
+  },
+  {
+   "node_id": "genotype",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "زوج الأليلات الذي يحمله الفرد لصفة ما، مثل AA أو Aa أو aa."
+  },
+  {
+   "node_id": "punnett",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "جدول يُستخدم لتوقّع احتمالات الطرز الجينية للأبناء من أليلات الأبوين."
+  }
+ ]
+}

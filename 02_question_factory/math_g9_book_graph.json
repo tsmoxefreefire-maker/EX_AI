@@ -1,0 +1,303 @@
+{
+ "book": {
+  "id": "math_g9",
+  "title": "الرياضيات · الصف التاسع",
+  "subject": "Mathematics",
+  "grade": 9
+ },
+ "nodes": [
+  {
+   "id": "math_g9_u",
+   "book_id": "math_g9",
+   "title": "الوحدة الثالثة: الاقترانات والخط المستقيم",
+   "learning_objective": "يتعرّف الطالب على التمثيل البياني.",
+   "level": "unit"
+  },
+  {
+   "id": "math_g9_t",
+   "book_id": "math_g9",
+   "title": "التمثيل البياني",
+   "learning_objective": "يفهم الطالب التمثيل البياني والعلاقات بين مفاهيمه.",
+   "level": "topic"
+  },
+  {
+   "id": "l_plane",
+   "book_id": "math_g9",
+   "title": "المستوى الإحداثي والاقتران",
+   "learning_objective": "يتعرّف الطالب على المستوى الإحداثي والاقتران.",
+   "level": "lesson"
+  },
+  {
+   "id": "plane",
+   "book_id": "math_g9",
+   "title": "المستوى الإحداثي",
+   "learning_objective": "مستوى يتكوّن من محورين متعامدين: محور x الأفقي ومحور y الرأسي، يتقاطعان في نقطة الأصل (0, 0).",
+   "level": "entity"
+  },
+  {
+   "id": "pair",
+   "book_id": "math_g9",
+   "title": "الزوج المرتب",
+   "learning_objective": "عددان (x, y) يحدّدان موقع نقطة في المستوى الإحداثي: الأول على محور x والثاني على محور y.",
+   "level": "entity"
+  },
+  {
+   "id": "function",
+   "book_id": "math_g9",
+   "title": "الاقتران",
+   "learning_objective": "علاقة تربط كل عنصر من المجال بعنصر واحد فقط من المدى، ويُمثَّل بأزواج مرتبة.",
+   "level": "entity"
+  },
+  {
+   "id": "l_linear",
+   "book_id": "math_g9",
+   "title": "الاقتران الخطي",
+   "learning_objective": "يتعرّف الطالب على الاقتران الخطي.",
+   "level": "lesson"
+  },
+  {
+   "id": "slope",
+   "book_id": "math_g9",
+   "title": "الميل",
+   "learning_objective": "مقدار انحدار الخط المستقيم: التغيّر الرأسي مقسوماً على التغيّر الأفقي بين زوجين مرتبين عليه.",
+   "level": "entity"
+  },
+  {
+   "id": "yint",
+   "book_id": "math_g9",
+   "title": "المقطع الصادي",
+   "learning_objective": "النقطة التي يقطع فيها الخط المستقيم محور y في المستوى الإحداثي، وتكون عندها x = 0.",
+   "level": "entity"
+  },
+  {
+   "id": "lineq",
+   "book_id": "math_g9",
+   "title": "معادلة الخط المستقيم",
+   "learning_objective": "المعادلة y = mx + b، حيث m هو الميل و b هو المقطع الصادي.",
+   "level": "entity"
+  },
+  {
+   "id": "linear",
+   "book_id": "math_g9",
+   "title": "الاقتران الخطي",
+   "learning_objective": "اقتران تمثيله البياني خط مستقيم، ويُكتب على صورة معادلة الخط المستقيم.",
+   "level": "entity"
+  }
+ ],
+ "relationships": [
+  {
+   "id": "math_g9_r_t",
+   "source_node_id": "math_g9_t",
+   "target_node_id": "math_g9_u",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "math_g9_r_l_plane",
+   "source_node_id": "l_plane",
+   "target_node_id": "math_g9_t",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "math_g9_r_plane",
+   "source_node_id": "plane",
+   "target_node_id": "l_plane",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "math_g9_r_pair",
+   "source_node_id": "pair",
+   "target_node_id": "l_plane",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "math_g9_r_function",
+   "source_node_id": "function",
+   "target_node_id": "l_plane",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "math_g9_r_l_linear",
+   "source_node_id": "l_linear",
+   "target_node_id": "math_g9_t",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "math_g9_r_slope",
+   "source_node_id": "slope",
+   "target_node_id": "l_linear",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "math_g9_r_yint",
+   "source_node_id": "yint",
+   "target_node_id": "l_linear",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "math_g9_r_lineq",
+   "source_node_id": "lineq",
+   "target_node_id": "l_linear",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "math_g9_r_linear",
+   "source_node_id": "linear",
+   "target_node_id": "l_linear",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "math_g9_p0",
+   "source_node_id": "plane",
+   "target_node_id": "pair",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "math_g9_p1",
+   "source_node_id": "pair",
+   "target_node_id": "function",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "math_g9_p2",
+   "source_node_id": "pair",
+   "target_node_id": "slope",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "math_g9_p3",
+   "source_node_id": "plane",
+   "target_node_id": "yint",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "math_g9_p4",
+   "source_node_id": "slope",
+   "target_node_id": "lineq",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "math_g9_p5",
+   "source_node_id": "yint",
+   "target_node_id": "lineq",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "math_g9_p6",
+   "source_node_id": "function",
+   "target_node_id": "linear",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "math_g9_p7",
+   "source_node_id": "lineq",
+   "target_node_id": "linear",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  }
+ ],
+ "node_metadata": [
+  {
+   "node_id": "plane",
+   "difficulty": "easy",
+   "estimated_minutes": 5,
+   "importance": 0.8
+  },
+  {
+   "node_id": "pair",
+   "difficulty": "easy",
+   "estimated_minutes": 5,
+   "importance": 0.8
+  },
+  {
+   "node_id": "function",
+   "difficulty": "medium",
+   "estimated_minutes": 7,
+   "importance": 0.8
+  },
+  {
+   "node_id": "slope",
+   "difficulty": "medium",
+   "estimated_minutes": 7,
+   "importance": 0.8
+  },
+  {
+   "node_id": "yint",
+   "difficulty": "easy",
+   "estimated_minutes": 5,
+   "importance": 0.8
+  },
+  {
+   "node_id": "lineq",
+   "difficulty": "medium",
+   "estimated_minutes": 7,
+   "importance": 0.8
+  },
+  {
+   "node_id": "linear",
+   "difficulty": "medium",
+   "estimated_minutes": 6,
+   "importance": 0.8
+  }
+ ],
+ "node_content": [
+  {
+   "node_id": "plane",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "مستوى يتكوّن من محورين متعامدين: محور x الأفقي ومحور y الرأسي، يتقاطعان في نقطة الأصل (0, 0)."
+  },
+  {
+   "node_id": "pair",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "عددان (x, y) يحدّدان موقع نقطة في المستوى الإحداثي: الأول على محور x والثاني على محور y."
+  },
+  {
+   "node_id": "function",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "علاقة تربط كل عنصر من المجال بعنصر واحد فقط من المدى، ويُمثَّل بأزواج مرتبة."
+  },
+  {
+   "node_id": "slope",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "مقدار انحدار الخط المستقيم: التغيّر الرأسي مقسوماً على التغيّر الأفقي بين زوجين مرتبين عليه."
+  },
+  {
+   "node_id": "yint",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "النقطة التي يقطع فيها الخط المستقيم محور y في المستوى الإحداثي، وتكون عندها x = 0."
+  },
+  {
+   "node_id": "lineq",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "المعادلة y = mx + b، حيث m هو الميل و b هو المقطع الصادي."
+  },
+  {
+   "node_id": "linear",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "اقتران تمثيله البياني خط مستقيم، ويُكتب على صورة معادلة الخط المستقيم."
+  }
+ ]
+}

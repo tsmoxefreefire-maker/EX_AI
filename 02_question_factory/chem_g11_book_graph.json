@@ -1,0 +1,322 @@
+{
+ "book": {
+  "id": "chem_g11",
+  "title": "الكيمياء · الصف الحادي عشر",
+  "subject": "Chemistry",
+  "grade": 11
+ },
+ "nodes": [
+  {
+   "id": "chem_g11_u",
+   "book_id": "chem_g11",
+   "title": "الوحدة الثانية: الروابط الكيميائية",
+   "learning_objective": "يتعرّف الطالب على الذرة والروابط.",
+   "level": "unit"
+  },
+  {
+   "id": "chem_g11_t",
+   "book_id": "chem_g11",
+   "title": "الذرة والروابط",
+   "learning_objective": "يفهم الطالب الذرة والروابط والعلاقات بين مفاهيمه.",
+   "level": "topic"
+  },
+  {
+   "id": "l_ions",
+   "book_id": "chem_g11",
+   "title": "الإلكترونات والأيونات",
+   "learning_objective": "يتعرّف الطالب على الإلكترونات والأيونات.",
+   "level": "lesson"
+  },
+  {
+   "id": "atom",
+   "book_id": "chem_g11",
+   "title": "الذرة",
+   "learning_objective": "أصغر جزء من العنصر يحمل خصائصه، وتتكوّن من نواة موجبة تدور حولها الإلكترونات.",
+   "level": "entity"
+  },
+  {
+   "id": "electron",
+   "book_id": "chem_g11",
+   "title": "الإلكترونات",
+   "learning_objective": "جسيمات سالبة الشحنة تدور حول نواة الذرة في مستويات طاقة.",
+   "level": "entity"
+  },
+  {
+   "id": "valence",
+   "book_id": "chem_g11",
+   "title": "إلكترونات التكافؤ",
+   "learning_objective": "الإلكترونات الموجودة في مستوى الطاقة الخارجي للذرة، وهي التي تشارك في تكوين الروابط.",
+   "level": "entity"
+  },
+  {
+   "id": "ion",
+   "book_id": "chem_g11",
+   "title": "الأيون",
+   "learning_objective": "ذرة فقدت إلكترونات فأصبحت موجبة، أو كسبت إلكترونات فأصبحت سالبة.",
+   "level": "entity"
+  },
+  {
+   "id": "l_bonds",
+   "book_id": "chem_g11",
+   "title": "أنواع الروابط",
+   "learning_objective": "يتعرّف الطالب على أنواع الروابط.",
+   "level": "lesson"
+  },
+  {
+   "id": "ionic",
+   "book_id": "chem_g11",
+   "title": "الرابطة الأيونية",
+   "learning_objective": "قوة تجاذب كهربائي بين أيون موجب وأيون سالب، تنتج عن انتقال إلكترونات التكافؤ من ذرة إلى أخرى.",
+   "level": "entity"
+  },
+  {
+   "id": "covalent",
+   "book_id": "chem_g11",
+   "title": "الرابطة التساهمية",
+   "learning_objective": "رابطة تنشأ عندما تتشارك ذرتان بزوج أو أكثر من إلكترونات التكافؤ.",
+   "level": "entity"
+  },
+  {
+   "id": "ionic_compound",
+   "book_id": "chem_g11",
+   "title": "المركب الأيوني",
+   "learning_objective": "مادة صلبة تتكوّن من أيونات موجبة وسالبة مترابطة بالرابطة الأيونية، مثل ملح الطعام.",
+   "level": "entity"
+  },
+  {
+   "id": "molecule",
+   "book_id": "chem_g11",
+   "title": "الجزيء",
+   "learning_objective": "مجموعة ذرات مترابطة بالرابطة التساهمية، مثل جزيء الماء.",
+   "level": "entity"
+  }
+ ],
+ "relationships": [
+  {
+   "id": "chem_g11_r_t",
+   "source_node_id": "chem_g11_t",
+   "target_node_id": "chem_g11_u",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "chem_g11_r_l_ions",
+   "source_node_id": "l_ions",
+   "target_node_id": "chem_g11_t",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "chem_g11_r_atom",
+   "source_node_id": "atom",
+   "target_node_id": "l_ions",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "chem_g11_r_electron",
+   "source_node_id": "electron",
+   "target_node_id": "l_ions",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "chem_g11_r_valence",
+   "source_node_id": "valence",
+   "target_node_id": "l_ions",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "chem_g11_r_ion",
+   "source_node_id": "ion",
+   "target_node_id": "l_ions",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "chem_g11_r_l_bonds",
+   "source_node_id": "l_bonds",
+   "target_node_id": "chem_g11_t",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "chem_g11_r_ionic",
+   "source_node_id": "ionic",
+   "target_node_id": "l_bonds",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "chem_g11_r_covalent",
+   "source_node_id": "covalent",
+   "target_node_id": "l_bonds",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "chem_g11_r_ionic_compound",
+   "source_node_id": "ionic_compound",
+   "target_node_id": "l_bonds",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "chem_g11_r_molecule",
+   "source_node_id": "molecule",
+   "target_node_id": "l_bonds",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "chem_g11_p0",
+   "source_node_id": "atom",
+   "target_node_id": "electron",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "chem_g11_p1",
+   "source_node_id": "electron",
+   "target_node_id": "valence",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "chem_g11_p2",
+   "source_node_id": "valence",
+   "target_node_id": "ion",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "chem_g11_p3",
+   "source_node_id": "ion",
+   "target_node_id": "ionic",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "chem_g11_p4",
+   "source_node_id": "valence",
+   "target_node_id": "covalent",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "chem_g11_p5",
+   "source_node_id": "ionic",
+   "target_node_id": "ionic_compound",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "chem_g11_p6",
+   "source_node_id": "covalent",
+   "target_node_id": "molecule",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  }
+ ],
+ "node_metadata": [
+  {
+   "node_id": "atom",
+   "difficulty": "easy",
+   "estimated_minutes": 5,
+   "importance": 0.8
+  },
+  {
+   "node_id": "electron",
+   "difficulty": "easy",
+   "estimated_minutes": 5,
+   "importance": 0.8
+  },
+  {
+   "node_id": "valence",
+   "difficulty": "medium",
+   "estimated_minutes": 6,
+   "importance": 0.8
+  },
+  {
+   "node_id": "ion",
+   "difficulty": "medium",
+   "estimated_minutes": 6,
+   "importance": 0.8
+  },
+  {
+   "node_id": "ionic",
+   "difficulty": "medium",
+   "estimated_minutes": 7,
+   "importance": 0.8
+  },
+  {
+   "node_id": "covalent",
+   "difficulty": "medium",
+   "estimated_minutes": 7,
+   "importance": 0.8
+  },
+  {
+   "node_id": "ionic_compound",
+   "difficulty": "medium",
+   "estimated_minutes": 6,
+   "importance": 0.8
+  },
+  {
+   "node_id": "molecule",
+   "difficulty": "medium",
+   "estimated_minutes": 6,
+   "importance": 0.8
+  }
+ ],
+ "node_content": [
+  {
+   "node_id": "atom",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "أصغر جزء من العنصر يحمل خصائصه، وتتكوّن من نواة موجبة تدور حولها الإلكترونات."
+  },
+  {
+   "node_id": "electron",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "جسيمات سالبة الشحنة تدور حول نواة الذرة في مستويات طاقة."
+  },
+  {
+   "node_id": "valence",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "الإلكترونات الموجودة في مستوى الطاقة الخارجي للذرة، وهي التي تشارك في تكوين الروابط."
+  },
+  {
+   "node_id": "ion",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "ذرة فقدت إلكترونات فأصبحت موجبة، أو كسبت إلكترونات فأصبحت سالبة."
+  },
+  {
+   "node_id": "ionic",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "قوة تجاذب كهربائي بين أيون موجب وأيون سالب، تنتج عن انتقال إلكترونات التكافؤ من ذرة إلى أخرى."
+  },
+  {
+   "node_id": "covalent",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "رابطة تنشأ عندما تتشارك ذرتان بزوج أو أكثر من إلكترونات التكافؤ."
+  },
+  {
+   "node_id": "ionic_compound",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "مادة صلبة تتكوّن من أيونات موجبة وسالبة مترابطة بالرابطة الأيونية، مثل ملح الطعام."
+  },
+  {
+   "node_id": "molecule",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "مجموعة ذرات مترابطة بالرابطة التساهمية، مثل جزيء الماء."
+  }
+ ]
+}

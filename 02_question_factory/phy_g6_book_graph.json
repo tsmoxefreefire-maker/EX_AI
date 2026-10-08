@@ -1,0 +1,269 @@
+{
+ "book": {
+  "id": "phy",
+  "title": "الفيزياء · الصف السادس",
+  "subject": "Physics",
+  "grade": 6
+ },
+ "nodes": [
+  {
+   "id": "phy",
+   "title": "الفيزياء · الصف السادس",
+   "level": "book"
+  },
+  {
+   "id": "phy_u",
+   "title": "الفيزياء · الصف السادس",
+   "level": "unit"
+  },
+  {
+   "id": "phy_t",
+   "title": "الفيزياء · الصف السادس",
+   "level": "topic"
+  },
+  {
+   "id": "phy_l1",
+   "title": "القوة والحركة",
+   "level": "lesson"
+  },
+  {
+   "id": "force",
+   "title": "القوة",
+   "level": "entity"
+  },
+  {
+   "id": "motion",
+   "title": "الحركة",
+   "level": "entity"
+  },
+  {
+   "id": "speed",
+   "title": "السرعة",
+   "level": "entity"
+  },
+  {
+   "id": "gravity",
+   "title": "الجاذبية",
+   "level": "entity"
+  },
+  {
+   "id": "friction",
+   "title": "الاحتكاك",
+   "level": "entity"
+  },
+  {
+   "id": "phy_l2",
+   "title": "الطاقة والكهرباء",
+   "level": "lesson"
+  },
+  {
+   "id": "energy",
+   "title": "الطاقة",
+   "level": "entity"
+  },
+  {
+   "id": "electricity",
+   "title": "الكهرباء",
+   "level": "entity"
+  },
+  {
+   "id": "circuit",
+   "title": "الدارة الكهربائية",
+   "level": "entity"
+  },
+  {
+   "id": "magnet",
+   "title": "المغناطيس",
+   "level": "entity"
+  },
+  {
+   "id": "light",
+   "title": "الضوء",
+   "level": "entity"
+  },
+  {
+   "id": "sound",
+   "title": "الصوت",
+   "level": "entity"
+  }
+ ],
+ "relationships": [
+  {
+   "source_node_id": "phy_u",
+   "target_node_id": "phy",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "phy_t",
+   "target_node_id": "phy_u",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "phy_l1",
+   "target_node_id": "phy_t",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "force",
+   "target_node_id": "phy_l1",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "motion",
+   "target_node_id": "phy_l1",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "speed",
+   "target_node_id": "phy_l1",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "gravity",
+   "target_node_id": "phy_l1",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "friction",
+   "target_node_id": "phy_l1",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "force",
+   "target_node_id": "motion",
+   "type": "prerequisiteOf"
+  },
+  {
+   "source_node_id": "motion",
+   "target_node_id": "speed",
+   "type": "prerequisiteOf"
+  },
+  {
+   "source_node_id": "force",
+   "target_node_id": "gravity",
+   "type": "prerequisiteOf"
+  },
+  {
+   "source_node_id": "force",
+   "target_node_id": "friction",
+   "type": "prerequisiteOf"
+  },
+  {
+   "source_node_id": "phy_l2",
+   "target_node_id": "phy_t",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "energy",
+   "target_node_id": "phy_l2",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "electricity",
+   "target_node_id": "phy_l2",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "circuit",
+   "target_node_id": "phy_l2",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "magnet",
+   "target_node_id": "phy_l2",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "light",
+   "target_node_id": "phy_l2",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "sound",
+   "target_node_id": "phy_l2",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "energy",
+   "target_node_id": "electricity",
+   "type": "prerequisiteOf"
+  },
+  {
+   "source_node_id": "electricity",
+   "target_node_id": "circuit",
+   "type": "prerequisiteOf"
+  },
+  {
+   "source_node_id": "energy",
+   "target_node_id": "light",
+   "type": "prerequisiteOf"
+  },
+  {
+   "source_node_id": "energy",
+   "target_node_id": "sound",
+   "type": "prerequisiteOf"
+  },
+  {
+   "source_node_id": "electricity",
+   "target_node_id": "magnet",
+   "type": "prerequisiteOf"
+  }
+ ],
+ "node_content": [
+  {
+   "node_id": "force",
+   "content_type": "text",
+   "content_text": "دفع أو سحب يغيّر حركة الجسم؛ تُقاس بالنيوتن"
+  },
+  {
+   "node_id": "motion",
+   "content_type": "text",
+   "content_text": "تغيّر مكان الجسم مع الزمن"
+  },
+  {
+   "node_id": "speed",
+   "content_type": "text",
+   "content_text": "المسافة التي يقطعها الجسم في وحدة الزمن"
+  },
+  {
+   "node_id": "gravity",
+   "content_type": "text",
+   "content_text": "قوة تسحب الأجسام نحو الأرض؛ تجعل الأشياء تسقط"
+  },
+  {
+   "node_id": "friction",
+   "content_type": "text",
+   "content_text": "قوة تعيق حركة الأجسام المتلامسة؛ تبطئ الحركة"
+  },
+  {
+   "node_id": "energy",
+   "content_type": "text",
+   "content_text": "القدرة على بذل شغل؛ لها أشكال كثيرة"
+  },
+  {
+   "node_id": "electricity",
+   "content_type": "text",
+   "content_text": "طاقة تنتقل عبر الأسلاك؛ تشغّل الأجهزة"
+  },
+  {
+   "node_id": "circuit",
+   "content_type": "text",
+   "content_text": "مسار مغلق يمر فيه التيار من البطارية إلى المصباح"
+  },
+  {
+   "node_id": "magnet",
+   "content_type": "text",
+   "content_text": "جسم يجذب الحديد؛ له قطبان شمالي وجنوبي"
+  },
+  {
+   "node_id": "light",
+   "content_type": "text",
+   "content_text": "طاقة تنتقل بخطوط مستقيمة؛ تمكّننا من الرؤية"
+  },
+  {
+   "node_id": "sound",
+   "content_type": "text",
+   "content_text": "طاقة تنتقل بالاهتزاز؛ نسمعها بالأذن"
+  }
+ ]
+}

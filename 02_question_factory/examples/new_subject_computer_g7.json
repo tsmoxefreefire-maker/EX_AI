@@ -1,0 +1,362 @@
+{
+ "book": {
+  "id": "cs_g7",
+  "title": "الحاسوب · الصف السابع",
+  "subject": "Computer Science",
+  "grade": 7
+ },
+ "nodes": [
+  {
+   "id": "cs_g7_u",
+   "book_id": "cs_g7",
+   "title": "الوحدة الأولى: مكوّنات الحاسوب",
+   "learning_objective": "يتعرّف الطالب على كيف يعمل الحاسوب.",
+   "level": "unit"
+  },
+  {
+   "id": "cs_g7_t",
+   "book_id": "cs_g7",
+   "title": "كيف يعمل الحاسوب",
+   "learning_objective": "يفهم الطالب كيف يعمل الحاسوب والعلاقات بين مفاهيمه.",
+   "level": "topic"
+  },
+  {
+   "id": "l_parts",
+   "book_id": "cs_g7",
+   "title": "أجزاء الحاسوب",
+   "learning_objective": "يتعرّف الطالب على أجزاء الحاسوب.",
+   "level": "lesson"
+  },
+  {
+   "id": "computer",
+   "book_id": "cs_g7",
+   "title": "الحاسوب",
+   "learning_objective": "جهاز إلكتروني يستقبل البيانات ويعالجها ويخزّنها ويُخرج النتائج.",
+   "level": "entity"
+  },
+  {
+   "id": "input",
+   "book_id": "cs_g7",
+   "title": "وحدات الإدخال",
+   "learning_objective": "أجهزة تُدخل البيانات إلى الحاسوب، مثل لوحة المفاتيح والفأرة.",
+   "level": "entity"
+  },
+  {
+   "id": "cpu",
+   "book_id": "cs_g7",
+   "title": "وحدة المعالجة المركزية",
+   "learning_objective": "عقل الحاسوب، تعالج البيانات القادمة من وحدات الإدخال وتنفّذ الأوامر.",
+   "level": "entity"
+  },
+  {
+   "id": "memory",
+   "book_id": "cs_g7",
+   "title": "الذاكرة",
+   "learning_objective": "مكان يخزّن فيه الحاسوب البيانات والبرامج أثناء عمل وحدة المعالجة المركزية.",
+   "level": "entity"
+  },
+  {
+   "id": "output",
+   "book_id": "cs_g7",
+   "title": "وحدات الإخراج",
+   "learning_objective": "أجهزة تعرض نتائج المعالجة من وحدة المعالجة المركزية، مثل الشاشة والطابعة.",
+   "level": "entity"
+  },
+  {
+   "id": "l_programs",
+   "book_id": "cs_g7",
+   "title": "البرامج والخوارزميات",
+   "learning_objective": "يتعرّف الطالب على البرامج والخوارزميات.",
+   "level": "lesson"
+  },
+  {
+   "id": "algorithm",
+   "book_id": "cs_g7",
+   "title": "الخوارزمية",
+   "learning_objective": "خطوات مرتّبة ومحدّدة لحل مشكلة.",
+   "level": "entity"
+  },
+  {
+   "id": "program",
+   "book_id": "cs_g7",
+   "title": "البرنامج",
+   "learning_objective": "مجموعة أوامر مكتوبة بلغة البرمجة تنفّذ الخوارزمية على الحاسوب.",
+   "level": "entity"
+  },
+  {
+   "id": "language",
+   "book_id": "cs_g7",
+   "title": "لغة البرمجة",
+   "learning_objective": "لغة نكتب فيها الأوامر للحاسوب بطريقة يفهمها، مثل بايثون.",
+   "level": "entity"
+  },
+  {
+   "id": "bug",
+   "book_id": "cs_g7",
+   "title": "الخطأ البرمجي",
+   "learning_objective": "خطأ في البرنامج يجعله يعطي نتيجة غير صحيحة، ونجده بتتبّع خطوات الخوارزمية.",
+   "level": "entity"
+  }
+ ],
+ "relationships": [
+  {
+   "id": "cs_g7_r_t",
+   "source_node_id": "cs_g7_t",
+   "target_node_id": "cs_g7_u",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "cs_g7_r_l_parts",
+   "source_node_id": "l_parts",
+   "target_node_id": "cs_g7_t",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "cs_g7_r_computer",
+   "source_node_id": "computer",
+   "target_node_id": "l_parts",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "cs_g7_r_input",
+   "source_node_id": "input",
+   "target_node_id": "l_parts",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "cs_g7_r_cpu",
+   "source_node_id": "cpu",
+   "target_node_id": "l_parts",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "cs_g7_r_memory",
+   "source_node_id": "memory",
+   "target_node_id": "l_parts",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "cs_g7_r_output",
+   "source_node_id": "output",
+   "target_node_id": "l_parts",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "cs_g7_r_l_programs",
+   "source_node_id": "l_programs",
+   "target_node_id": "cs_g7_t",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "cs_g7_r_algorithm",
+   "source_node_id": "algorithm",
+   "target_node_id": "l_programs",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "cs_g7_r_program",
+   "source_node_id": "program",
+   "target_node_id": "l_programs",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "cs_g7_r_language",
+   "source_node_id": "language",
+   "target_node_id": "l_programs",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "cs_g7_r_bug",
+   "source_node_id": "bug",
+   "target_node_id": "l_programs",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "cs_g7_p0",
+   "source_node_id": "computer",
+   "target_node_id": "input",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "cs_g7_p1",
+   "source_node_id": "computer",
+   "target_node_id": "output",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "cs_g7_p2",
+   "source_node_id": "input",
+   "target_node_id": "cpu",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "cs_g7_p3",
+   "source_node_id": "memory",
+   "target_node_id": "cpu",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "cs_g7_p4",
+   "source_node_id": "cpu",
+   "target_node_id": "output",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "cs_g7_p5",
+   "source_node_id": "algorithm",
+   "target_node_id": "program",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "cs_g7_p6",
+   "source_node_id": "language",
+   "target_node_id": "program",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "cs_g7_p7",
+   "source_node_id": "program",
+   "target_node_id": "bug",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "cs_g7_p8",
+   "source_node_id": "algorithm",
+   "target_node_id": "bug",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  }
+ ],
+ "node_metadata": [
+  {
+   "node_id": "computer",
+   "difficulty": "easy",
+   "estimated_minutes": 5,
+   "importance": 0.8
+  },
+  {
+   "node_id": "input",
+   "difficulty": "easy",
+   "estimated_minutes": 5,
+   "importance": 0.8
+  },
+  {
+   "node_id": "cpu",
+   "difficulty": "medium",
+   "estimated_minutes": 6,
+   "importance": 0.8
+  },
+  {
+   "node_id": "memory",
+   "difficulty": "medium",
+   "estimated_minutes": 6,
+   "importance": 0.8
+  },
+  {
+   "node_id": "output",
+   "difficulty": "easy",
+   "estimated_minutes": 5,
+   "importance": 0.8
+  },
+  {
+   "node_id": "algorithm",
+   "difficulty": "medium",
+   "estimated_minutes": 6,
+   "importance": 0.8
+  },
+  {
+   "node_id": "program",
+   "difficulty": "medium",
+   "estimated_minutes": 6,
+   "importance": 0.8
+  },
+  {
+   "node_id": "language",
+   "difficulty": "easy",
+   "estimated_minutes": 5,
+   "importance": 0.8
+  },
+  {
+   "node_id": "bug",
+   "difficulty": "hard",
+   "estimated_minutes": 6,
+   "importance": 0.8
+  }
+ ],
+ "node_content": [
+  {
+   "node_id": "computer",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "جهاز إلكتروني يستقبل البيانات ويعالجها ويخزّنها ويُخرج النتائج."
+  },
+  {
+   "node_id": "input",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "أجهزة تُدخل البيانات إلى الحاسوب، مثل لوحة المفاتيح والفأرة."
+  },
+  {
+   "node_id": "cpu",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "عقل الحاسوب، تعالج البيانات القادمة من وحدات الإدخال وتنفّذ الأوامر."
+  },
+  {
+   "node_id": "memory",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "مكان يخزّن فيه الحاسوب البيانات والبرامج أثناء عمل وحدة المعالجة المركزية."
+  },
+  {
+   "node_id": "output",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "أجهزة تعرض نتائج المعالجة من وحدة المعالجة المركزية، مثل الشاشة والطابعة."
+  },
+  {
+   "node_id": "algorithm",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "خطوات مرتّبة ومحدّدة لحل مشكلة."
+  },
+  {
+   "node_id": "program",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "مجموعة أوامر مكتوبة بلغة البرمجة تنفّذ الخوارزمية على الحاسوب."
+  },
+  {
+   "node_id": "language",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "لغة نكتب فيها الأوامر للحاسوب بطريقة يفهمها، مثل بايثون."
+  },
+  {
+   "node_id": "bug",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "خطأ في البرنامج يجعله يعطي نتيجة غير صحيحة، ونجده بتتبّع خطوات الخوارزمية."
+  }
+ ]
+}

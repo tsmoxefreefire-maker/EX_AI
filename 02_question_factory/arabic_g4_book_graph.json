@@ -1,0 +1,289 @@
+{
+ "book": {
+  "id": "ara",
+  "title": "اللغة العربية · الصف الرابع",
+  "subject": "Arabic language",
+  "grade": 4
+ },
+ "nodes": [
+  {
+   "id": "ara",
+   "title": "اللغة العربية · الصف الرابع",
+   "level": "book"
+  },
+  {
+   "id": "ara_u",
+   "title": "اللغة العربية · الصف الرابع",
+   "level": "unit"
+  },
+  {
+   "id": "ara_t",
+   "title": "اللغة العربية · الصف الرابع",
+   "level": "topic"
+  },
+  {
+   "id": "ara_l1",
+   "title": "الحروف والكلمات",
+   "level": "lesson"
+  },
+  {
+   "id": "letters",
+   "title": "الحروف",
+   "level": "entity"
+  },
+  {
+   "id": "harakat",
+   "title": "الحركات",
+   "level": "entity"
+  },
+  {
+   "id": "word",
+   "title": "الكلمة",
+   "level": "entity"
+  },
+  {
+   "id": "noun",
+   "title": "الاسم",
+   "level": "entity"
+  },
+  {
+   "id": "verb",
+   "title": "الفعل",
+   "level": "entity"
+  },
+  {
+   "id": "particle",
+   "title": "حرف المعنى",
+   "level": "entity"
+  },
+  {
+   "id": "ara_l2",
+   "title": "الجملة",
+   "level": "lesson"
+  },
+  {
+   "id": "sentence",
+   "title": "الجملة",
+   "level": "entity"
+  },
+  {
+   "id": "nominal",
+   "title": "الجملة الاسمية",
+   "level": "entity"
+  },
+  {
+   "id": "mubtada",
+   "title": "المبتدأ",
+   "level": "entity"
+  },
+  {
+   "id": "khabar",
+   "title": "الخبر",
+   "level": "entity"
+  },
+  {
+   "id": "verbal",
+   "title": "الجملة الفعلية",
+   "level": "entity"
+  },
+  {
+   "id": "faail",
+   "title": "الفاعل",
+   "level": "entity"
+  }
+ ],
+ "relationships": [
+  {
+   "source_node_id": "ara_u",
+   "target_node_id": "ara",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "ara_t",
+   "target_node_id": "ara_u",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "ara_l1",
+   "target_node_id": "ara_t",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "letters",
+   "target_node_id": "ara_l1",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "harakat",
+   "target_node_id": "ara_l1",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "word",
+   "target_node_id": "ara_l1",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "noun",
+   "target_node_id": "ara_l1",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "verb",
+   "target_node_id": "ara_l1",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "particle",
+   "target_node_id": "ara_l1",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "letters",
+   "target_node_id": "word",
+   "type": "prerequisiteOf"
+  },
+  {
+   "source_node_id": "harakat",
+   "target_node_id": "word",
+   "type": "prerequisiteOf"
+  },
+  {
+   "source_node_id": "word",
+   "target_node_id": "noun",
+   "type": "prerequisiteOf"
+  },
+  {
+   "source_node_id": "word",
+   "target_node_id": "verb",
+   "type": "prerequisiteOf"
+  },
+  {
+   "source_node_id": "word",
+   "target_node_id": "particle",
+   "type": "prerequisiteOf"
+  },
+  {
+   "source_node_id": "ara_l2",
+   "target_node_id": "ara_t",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "sentence",
+   "target_node_id": "ara_l2",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "nominal",
+   "target_node_id": "ara_l2",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "mubtada",
+   "target_node_id": "ara_l2",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "khabar",
+   "target_node_id": "ara_l2",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "verbal",
+   "target_node_id": "ara_l2",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "faail",
+   "target_node_id": "ara_l2",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "sentence",
+   "target_node_id": "nominal",
+   "type": "prerequisiteOf"
+  },
+  {
+   "source_node_id": "nominal",
+   "target_node_id": "mubtada",
+   "type": "prerequisiteOf"
+  },
+  {
+   "source_node_id": "mubtada",
+   "target_node_id": "khabar",
+   "type": "prerequisiteOf"
+  },
+  {
+   "source_node_id": "sentence",
+   "target_node_id": "verbal",
+   "type": "prerequisiteOf"
+  },
+  {
+   "source_node_id": "verbal",
+   "target_node_id": "faail",
+   "type": "prerequisiteOf"
+  }
+ ],
+ "node_content": [
+  {
+   "node_id": "letters",
+   "content_type": "text",
+   "content_text": "رموز الكتابة؛ عددها ثمانية وعشرون حرفاً"
+  },
+  {
+   "node_id": "harakat",
+   "content_type": "text",
+   "content_text": "الفتحة والضمة والكسرة والسكون؛ تضبط نطق الحرف"
+  },
+  {
+   "node_id": "word",
+   "content_type": "text",
+   "content_text": "مجموعة حروف لها معنى"
+  },
+  {
+   "node_id": "noun",
+   "content_type": "text",
+   "content_text": "كلمة تدل على إنسان أو حيوان أو شيء"
+  },
+  {
+   "node_id": "verb",
+   "content_type": "text",
+   "content_text": "كلمة تدل على حدث في زمن"
+  },
+  {
+   "node_id": "particle",
+   "content_type": "text",
+   "content_text": "كلمة لا يظهر معناها إلا مع غيرها مثل: في، على"
+  },
+  {
+   "node_id": "sentence",
+   "content_type": "text",
+   "content_text": "كلمات مترابطة تعطي معنى تاماً"
+  },
+  {
+   "node_id": "nominal",
+   "content_type": "text",
+   "content_text": "جملة تبدأ باسم"
+  },
+  {
+   "node_id": "mubtada",
+   "content_type": "text",
+   "content_text": "اسم تبدأ به الجملة الاسمية"
+  },
+  {
+   "node_id": "khabar",
+   "content_type": "text",
+   "content_text": "ما يُخبَر به عن المبتدأ ليتم المعنى"
+  },
+  {
+   "node_id": "verbal",
+   "content_type": "text",
+   "content_text": "جملة تبدأ بفعل"
+  },
+  {
+   "node_id": "faail",
+   "content_type": "text",
+   "content_text": "اسم يدل على من قام بالفعل"
+  }
+ ]
+}

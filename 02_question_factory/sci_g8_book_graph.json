@@ -1,0 +1,355 @@
+{
+ "book": {
+  "id": "sci_g8",
+  "title": "العلوم · الصف الثامن",
+  "subject": "Science",
+  "grade": 8
+ },
+ "nodes": [
+  {
+   "id": "sci_g8_u",
+   "book_id": "sci_g8",
+   "title": "الوحدة الأولى: الخلية",
+   "learning_objective": "يتعرّف الطالب على تركيب الخلية.",
+   "level": "unit"
+  },
+  {
+   "id": "sci_g8_t",
+   "book_id": "sci_g8",
+   "title": "تركيب الخلية",
+   "learning_objective": "يفهم الطالب تركيب الخلية والعلاقات بين مفاهيمه.",
+   "level": "topic"
+  },
+  {
+   "id": "l_cell_parts",
+   "book_id": "sci_g8",
+   "title": "مكوّنات الخلية",
+   "learning_objective": "يتعرّف الطالب على مكوّنات الخلية.",
+   "level": "lesson"
+  },
+  {
+   "id": "cell",
+   "book_id": "sci_g8",
+   "title": "الخلية",
+   "learning_objective": "أصغر وحدة حيّة يتكوّن منها جسم الكائن الحي، وتقوم بجميع وظائف الحياة.",
+   "level": "entity"
+  },
+  {
+   "id": "membrane",
+   "book_id": "sci_g8",
+   "title": "الغشاء الخلوي",
+   "learning_objective": "غشاء رقيق يحيط بالخلية، ويتحكّم في دخول المواد إليها وخروجها منها.",
+   "level": "entity"
+  },
+  {
+   "id": "cytoplasm",
+   "book_id": "sci_g8",
+   "title": "السيتوبلازم",
+   "learning_objective": "سائل هلامي داخل الغشاء الخلوي، تسبح فيه مكوّنات الخلية وتحدث فيه كثير من التفاعلات.",
+   "level": "entity"
+  },
+  {
+   "id": "nucleus",
+   "book_id": "sci_g8",
+   "title": "النواة",
+   "learning_objective": "مركز التحكّم في الخلية، يحيط بها السيتوبلازم وتحتوي على المادة الوراثية.",
+   "level": "entity"
+  },
+  {
+   "id": "mito",
+   "book_id": "sci_g8",
+   "title": "الميتوكندريا",
+   "learning_objective": "عضيّة في السيتوبلازم تُطلق الطاقة من الغذاء لتستخدمها الخلية، وتُسمّى مصنع الطاقة.",
+   "level": "entity"
+  },
+  {
+   "id": "l_plant_animal",
+   "book_id": "sci_g8",
+   "title": "الخلية النباتية والحيوانية",
+   "learning_objective": "يتعرّف الطالب على الخلية النباتية والحيوانية.",
+   "level": "lesson"
+  },
+  {
+   "id": "cellwall",
+   "book_id": "sci_g8",
+   "title": "الجدار الخلوي",
+   "learning_objective": "طبقة صلبة خارج الغشاء الخلوي في الخلية النباتية، تعطيها شكلها الثابت وتحميها.",
+   "level": "entity"
+  },
+  {
+   "id": "chloroplast",
+   "book_id": "sci_g8",
+   "title": "البلاستيدات الخضراء",
+   "learning_objective": "عضيّات خضراء في السيتوبلازم في الخلية النباتية، يحدث فيها البناء الضوئي لصنع الغذاء.",
+   "level": "entity"
+  },
+  {
+   "id": "vacuole",
+   "book_id": "sci_g8",
+   "title": "الفجوة العصارية",
+   "learning_objective": "كيس في السيتوبلازم يخزّن الماء والأملاح، ويكون كبيراً في الخلية النباتية.",
+   "level": "entity"
+  },
+  {
+   "id": "photosynthesis",
+   "book_id": "sci_g8",
+   "title": "البناء الضوئي",
+   "learning_objective": "عملية تصنع فيها البلاستيدات الخضراء الغذاء من الماء وثاني أكسيد الكربون بوجود ضوء الشمس.",
+   "level": "entity"
+  }
+ ],
+ "relationships": [
+  {
+   "id": "sci_g8_r_t",
+   "source_node_id": "sci_g8_t",
+   "target_node_id": "sci_g8_u",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "sci_g8_r_l_cell_parts",
+   "source_node_id": "l_cell_parts",
+   "target_node_id": "sci_g8_t",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "sci_g8_r_cell",
+   "source_node_id": "cell",
+   "target_node_id": "l_cell_parts",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "sci_g8_r_membrane",
+   "source_node_id": "membrane",
+   "target_node_id": "l_cell_parts",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "sci_g8_r_cytoplasm",
+   "source_node_id": "cytoplasm",
+   "target_node_id": "l_cell_parts",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "sci_g8_r_nucleus",
+   "source_node_id": "nucleus",
+   "target_node_id": "l_cell_parts",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "sci_g8_r_mito",
+   "source_node_id": "mito",
+   "target_node_id": "l_cell_parts",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "sci_g8_r_l_plant_animal",
+   "source_node_id": "l_plant_animal",
+   "target_node_id": "sci_g8_t",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "sci_g8_r_cellwall",
+   "source_node_id": "cellwall",
+   "target_node_id": "l_plant_animal",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "sci_g8_r_chloroplast",
+   "source_node_id": "chloroplast",
+   "target_node_id": "l_plant_animal",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "sci_g8_r_vacuole",
+   "source_node_id": "vacuole",
+   "target_node_id": "l_plant_animal",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "sci_g8_r_photosynthesis",
+   "source_node_id": "photosynthesis",
+   "target_node_id": "l_plant_animal",
+   "type": "subsetOf",
+   "weight": 1.0
+  },
+  {
+   "id": "sci_g8_p0",
+   "source_node_id": "cell",
+   "target_node_id": "membrane",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "sci_g8_p1",
+   "source_node_id": "membrane",
+   "target_node_id": "cytoplasm",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "sci_g8_p2",
+   "source_node_id": "cytoplasm",
+   "target_node_id": "nucleus",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "sci_g8_p3",
+   "source_node_id": "cytoplasm",
+   "target_node_id": "mito",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "sci_g8_p4",
+   "source_node_id": "membrane",
+   "target_node_id": "cellwall",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "sci_g8_p5",
+   "source_node_id": "cytoplasm",
+   "target_node_id": "chloroplast",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "sci_g8_p6",
+   "source_node_id": "cytoplasm",
+   "target_node_id": "vacuole",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  },
+  {
+   "id": "sci_g8_p7",
+   "source_node_id": "chloroplast",
+   "target_node_id": "photosynthesis",
+   "type": "prerequisiteOf",
+   "weight": 1.0
+  }
+ ],
+ "node_metadata": [
+  {
+   "node_id": "cell",
+   "difficulty": "easy",
+   "estimated_minutes": 5,
+   "importance": 0.8
+  },
+  {
+   "node_id": "membrane",
+   "difficulty": "easy",
+   "estimated_minutes": 5,
+   "importance": 0.8
+  },
+  {
+   "node_id": "cytoplasm",
+   "difficulty": "medium",
+   "estimated_minutes": 5,
+   "importance": 0.8
+  },
+  {
+   "node_id": "nucleus",
+   "difficulty": "medium",
+   "estimated_minutes": 6,
+   "importance": 0.8
+  },
+  {
+   "node_id": "mito",
+   "difficulty": "medium",
+   "estimated_minutes": 6,
+   "importance": 0.8
+  },
+  {
+   "node_id": "cellwall",
+   "difficulty": "easy",
+   "estimated_minutes": 5,
+   "importance": 0.8
+  },
+  {
+   "node_id": "chloroplast",
+   "difficulty": "medium",
+   "estimated_minutes": 6,
+   "importance": 0.8
+  },
+  {
+   "node_id": "vacuole",
+   "difficulty": "easy",
+   "estimated_minutes": 5,
+   "importance": 0.8
+  },
+  {
+   "node_id": "photosynthesis",
+   "difficulty": "hard",
+   "estimated_minutes": 7,
+   "importance": 0.8
+  }
+ ],
+ "node_content": [
+  {
+   "node_id": "cell",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "أصغر وحدة حيّة يتكوّن منها جسم الكائن الحي، وتقوم بجميع وظائف الحياة."
+  },
+  {
+   "node_id": "membrane",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "غشاء رقيق يحيط بالخلية، ويتحكّم في دخول المواد إليها وخروجها منها."
+  },
+  {
+   "node_id": "cytoplasm",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "سائل هلامي داخل الغشاء الخلوي، تسبح فيه مكوّنات الخلية وتحدث فيه كثير من التفاعلات."
+  },
+  {
+   "node_id": "nucleus",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "مركز التحكّم في الخلية، يحيط بها السيتوبلازم وتحتوي على المادة الوراثية."
+  },
+  {
+   "node_id": "mito",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "عضيّة في السيتوبلازم تُطلق الطاقة من الغذاء لتستخدمها الخلية، وتُسمّى مصنع الطاقة."
+  },
+  {
+   "node_id": "cellwall",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "طبقة صلبة خارج الغشاء الخلوي في الخلية النباتية، تعطيها شكلها الثابت وتحميها."
+  },
+  {
+   "node_id": "chloroplast",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "عضيّات خضراء في السيتوبلازم في الخلية النباتية، يحدث فيها البناء الضوئي لصنع الغذاء."
+  },
+  {
+   "node_id": "vacuole",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "كيس في السيتوبلازم يخزّن الماء والأملاح، ويكون كبيراً في الخلية النباتية."
+  },
+  {
+   "node_id": "photosynthesis",
+   "content_type": "text",
+   "content_url": null,
+   "content_text": "عملية تصنع فيها البلاستيدات الخضراء الغذاء من الماء وثاني أكسيد الكربون بوجود ضوء الشمس."
+  }
+ ]
+}

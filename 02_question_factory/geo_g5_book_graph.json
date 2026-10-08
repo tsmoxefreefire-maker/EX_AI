@@ -1,0 +1,204 @@
+{
+ "book": {
+  "id": "geo",
+  "title": "الجغرافيا · الصف الخامس",
+  "subject": "Geography",
+  "grade": 5
+ },
+ "nodes": [
+  {
+   "id": "geo",
+   "title": "الجغرافيا · الصف الخامس",
+   "level": "book"
+  },
+  {
+   "id": "geo_u",
+   "title": "الجغرافيا · الصف الخامس",
+   "level": "unit"
+  },
+  {
+   "id": "geo_t",
+   "title": "الجغرافيا · الصف الخامس",
+   "level": "topic"
+  },
+  {
+   "id": "geo_l1",
+   "title": "أرضنا",
+   "level": "lesson"
+  },
+  {
+   "id": "earth",
+   "title": "الأرض",
+   "level": "entity"
+  },
+  {
+   "id": "continents",
+   "title": "القارات",
+   "level": "entity"
+  },
+  {
+   "id": "oceans",
+   "title": "المحيطات",
+   "level": "entity"
+  },
+  {
+   "id": "mountains",
+   "title": "الجبال",
+   "level": "entity"
+  },
+  {
+   "id": "rivers",
+   "title": "الأنهار",
+   "level": "entity"
+  },
+  {
+   "id": "climate",
+   "title": "المناخ",
+   "level": "entity"
+  },
+  {
+   "id": "weather",
+   "title": "الطقس",
+   "level": "entity"
+  },
+  {
+   "id": "map",
+   "title": "الخريطة",
+   "level": "entity"
+  }
+ ],
+ "relationships": [
+  {
+   "source_node_id": "geo_u",
+   "target_node_id": "geo",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "geo_t",
+   "target_node_id": "geo_u",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "geo_l1",
+   "target_node_id": "geo_t",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "earth",
+   "target_node_id": "geo_l1",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "continents",
+   "target_node_id": "geo_l1",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "oceans",
+   "target_node_id": "geo_l1",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "mountains",
+   "target_node_id": "geo_l1",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "rivers",
+   "target_node_id": "geo_l1",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "climate",
+   "target_node_id": "geo_l1",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "weather",
+   "target_node_id": "geo_l1",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "map",
+   "target_node_id": "geo_l1",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "earth",
+   "target_node_id": "continents",
+   "type": "prerequisiteOf"
+  },
+  {
+   "source_node_id": "earth",
+   "target_node_id": "oceans",
+   "type": "prerequisiteOf"
+  },
+  {
+   "source_node_id": "continents",
+   "target_node_id": "mountains",
+   "type": "prerequisiteOf"
+  },
+  {
+   "source_node_id": "mountains",
+   "target_node_id": "rivers",
+   "type": "prerequisiteOf"
+  },
+  {
+   "source_node_id": "earth",
+   "target_node_id": "climate",
+   "type": "prerequisiteOf"
+  },
+  {
+   "source_node_id": "climate",
+   "target_node_id": "weather",
+   "type": "prerequisiteOf"
+  },
+  {
+   "source_node_id": "continents",
+   "target_node_id": "map",
+   "type": "prerequisiteOf"
+  }
+ ],
+ "node_content": [
+  {
+   "node_id": "earth",
+   "content_type": "text",
+   "content_text": "الكوكب الذي نعيش عليه"
+  },
+  {
+   "node_id": "continents",
+   "content_type": "text",
+   "content_text": "مساحات كبيرة من اليابسة؛ عددها سبع"
+  },
+  {
+   "node_id": "oceans",
+   "content_type": "text",
+   "content_text": "مساحات كبيرة من الماء المالح"
+  },
+  {
+   "node_id": "mountains",
+   "content_type": "text",
+   "content_text": "أراضٍ مرتفعة جداً عن سطح الأرض"
+  },
+  {
+   "node_id": "rivers",
+   "content_type": "text",
+   "content_text": "مياه عذبة تجري من المرتفعات إلى البحر"
+  },
+  {
+   "node_id": "climate",
+   "content_type": "text",
+   "content_text": "حالة الجو في مكان لمدة طويلة"
+  },
+  {
+   "node_id": "weather",
+   "content_type": "text",
+   "content_text": "حالة الجو اليوم: حر أو برد أو مطر"
+  },
+  {
+   "node_id": "map",
+   "content_type": "text",
+   "content_text": "رسم للأرض أو جزء منها على ورقة"
+  }
+ ]
+}

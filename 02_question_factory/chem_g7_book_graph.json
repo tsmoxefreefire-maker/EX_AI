@@ -1,0 +1,189 @@
+{
+ "book": {
+  "id": "che",
+  "title": "الكيمياء · الصف السابع",
+  "subject": "Chemistry",
+  "grade": 7
+ },
+ "nodes": [
+  {
+   "id": "che",
+   "title": "الكيمياء · الصف السابع",
+   "level": "book"
+  },
+  {
+   "id": "che_u",
+   "title": "الكيمياء · الصف السابع",
+   "level": "unit"
+  },
+  {
+   "id": "che_t",
+   "title": "الكيمياء · الصف السابع",
+   "level": "topic"
+  },
+  {
+   "id": "che_l1",
+   "title": "المادة وتركيبها",
+   "level": "lesson"
+  },
+  {
+   "id": "atom",
+   "title": "الذرة",
+   "level": "entity"
+  },
+  {
+   "id": "element",
+   "title": "العنصر",
+   "level": "entity"
+  },
+  {
+   "id": "molecule",
+   "title": "الجزيء",
+   "level": "entity"
+  },
+  {
+   "id": "compound",
+   "title": "المركب",
+   "level": "entity"
+  },
+  {
+   "id": "reaction",
+   "title": "التفاعل الكيميائي",
+   "level": "entity"
+  },
+  {
+   "id": "acid",
+   "title": "الحمض",
+   "level": "entity"
+  },
+  {
+   "id": "base",
+   "title": "القاعدة",
+   "level": "entity"
+  }
+ ],
+ "relationships": [
+  {
+   "source_node_id": "che_u",
+   "target_node_id": "che",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "che_t",
+   "target_node_id": "che_u",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "che_l1",
+   "target_node_id": "che_t",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "atom",
+   "target_node_id": "che_l1",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "element",
+   "target_node_id": "che_l1",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "molecule",
+   "target_node_id": "che_l1",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "compound",
+   "target_node_id": "che_l1",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "reaction",
+   "target_node_id": "che_l1",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "acid",
+   "target_node_id": "che_l1",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "base",
+   "target_node_id": "che_l1",
+   "type": "subsetOf"
+  },
+  {
+   "source_node_id": "atom",
+   "target_node_id": "element",
+   "type": "prerequisiteOf"
+  },
+  {
+   "source_node_id": "atom",
+   "target_node_id": "molecule",
+   "type": "prerequisiteOf"
+  },
+  {
+   "source_node_id": "element",
+   "target_node_id": "compound",
+   "type": "prerequisiteOf"
+  },
+  {
+   "source_node_id": "molecule",
+   "target_node_id": "compound",
+   "type": "prerequisiteOf"
+  },
+  {
+   "source_node_id": "compound",
+   "target_node_id": "reaction",
+   "type": "prerequisiteOf"
+  },
+  {
+   "source_node_id": "reaction",
+   "target_node_id": "acid",
+   "type": "prerequisiteOf"
+  },
+  {
+   "source_node_id": "reaction",
+   "target_node_id": "base",
+   "type": "prerequisiteOf"
+  }
+ ],
+ "node_content": [
+  {
+   "node_id": "atom",
+   "content_type": "text",
+   "content_text": "أصغر جزء من العنصر"
+  },
+  {
+   "node_id": "element",
+   "content_type": "text",
+   "content_text": "مادة نقية من نوع واحد من الذرات"
+  },
+  {
+   "node_id": "molecule",
+   "content_type": "text",
+   "content_text": "ذرتان أو أكثر مترابطتان"
+  },
+  {
+   "node_id": "compound",
+   "content_type": "text",
+   "content_text": "مادة من عنصرين أو أكثر متحدين"
+  },
+  {
+   "node_id": "reaction",
+   "content_type": "text",
+   "content_text": "تغيّر ينتج مواد جديدة"
+  },
+  {
+   "node_id": "acid",
+   "content_type": "text",
+   "content_text": "مادة طعمها حامض وتحمّر ورق تباع الشمس"
+  },
+  {
+   "node_id": "base",
+   "content_type": "text",
+   "content_text": "مادة طعمها مر وتزرّق ورق تباع الشمس"
+  }
+ ]
+}

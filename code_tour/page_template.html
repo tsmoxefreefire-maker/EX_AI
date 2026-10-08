@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>رحلة الجراف بالكود</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@600;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* Layout: a metro line of numbered stops (the real order of the backend) beside ONE wide card: the explanation, then the code.
+   Phone: the line becomes a strip of stops on top, the card below. */
+:root{
+  --bg:#F2F5F3; --panel:#FFFFFF; --ink:#16231E; --muted:#5B6A64; --line:#D8E0DB;
+  --accent:#1D7466; --accent-soft:#E1F0EB; --opt:#9A6A12; --opt-soft:#F7EEDB;
+  --code-bg:#13201C; --code-ink:#DDE8E3; --code-ln:#5E7A70; --k:#7FD3C4; --s:#E9C27A; --c:#7E968D; --d:#9DB8FF; --num:#F29E8E;
+  --f-head:"Noto Kufi Arabic","IBM Plex Sans Arabic",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans Arabic","Noto Kufi Arabic",system-ui,sans-serif;
+  --f-code:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0E1513; --panel:#151F1C; --ink:#E3ECE8; --muted:#97A8A1; --line:#26332F;
+  --accent:#4DBFAC; --accent-soft:#16302A; --opt:#E3B45C; --opt-soft:#2E2512; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1513; --panel:#151F1C; --ink:#E3ECE8; --muted:#97A8A1; --line:#26332F;
+  --accent:#4DBFAC; --accent-soft:#16302A; --opt:#E3B45C; --opt-soft:#2E2512; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.75 var(--f-body);padding-inline:16px;padding-block:20px 40px}
+.wrap{max-width:1240px;margin-inline:auto;display:grid;gap:18px}
+header h1{font:800 clamp(1.5rem,3vw,2.1rem)/1.3 var(--f-head);margin:0;text-wrap:balance}
+header p{margin:.35rem 0 0;color:var(--muted);max-width:70ch}
+.flow{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;font-size:.85rem;color:var(--muted)}
+.flow b{color:var(--ink);font-weight:600}
+.flow span{background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:2px 10px}
+.tour{display:grid;grid-template-columns:minmax(260px,330px) minmax(0,1fr);gap:18px;align-items:start}
+/* ---- the line ---- */
+.line{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);max-height:calc(100vh - 24px);overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px}
+.phase{padding:6px 2px 10px}
+.phase h2{font:800 .92rem/1.5 var(--f-head);margin:6px 6px 2px;color:var(--accent)}
+.phase p{margin:0 6px 6px;font-size:.78rem;color:var(--muted);line-height:1.6}
+.stops{list-style:none;margin:0;padding:0;position:relative}
+.stops::before{content:"";position:absolute;inset-block:14px;inset-inline-start:21px;width:2px;background:var(--line)}
+.stop{display:grid;grid-template-columns:30px minmax(0,1fr);gap:8px;align-items:start;width:100%;background:none;border:0;border-radius:10px;padding:6px 6px;text-align:start;color:inherit;font:inherit;cursor:pointer;position:relative}
+.stop:hover{background:var(--accent-soft)}
+.stop:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.stop .num{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--panel);border:2px solid var(--line);font:600 .78rem/1 var(--f-code);font-variant-numeric:tabular-nums;color:var(--muted);position:relative;z-index:1}
+.stop .t{font-size:.86rem;font-weight:600;line-height:1.45}
+.stop .fn{display:block;font:400 .72rem/1.4 var(--f-code);color:var(--muted);direction:ltr;text-align:right;overflow-wrap:anywhere}
+.stop.opt .num{border-style:dashed;border-color:var(--opt);color:var(--opt)}
+.stop[aria-current="true"]{background:var(--accent-soft)}
+.stop[aria-current="true"] .num{background:var(--accent);border-color:var(--accent);color:var(--panel)}
+/* ---- the card ---- */
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:clamp(16px,3vw,28px);min-width:0;display:grid;gap:18px}
+.head{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:center}
+.big{width:56px;height:56px;border-radius:16px;background:var(--accent);color:var(--panel);display:grid;place-items:center;font:600 1.3rem/1 var(--f-code);font-variant-numeric:tabular-nums}
+.head h3{margin:0;font:800 1.35rem/1.4 var(--f-head);text-wrap:balance}
+.meta{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;margin-top:4px;font-size:.82rem;color:var(--muted)}
+.meta code{font-family:var(--f-code);direction:ltr;unicode-bidi:isolate;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:1px 7px;overflow-wrap:anywhere}
+.pill{font-size:.75rem;font-weight:600;border-radius:999px;padding:1px 10px;background:var(--opt-soft);color:var(--opt)}
+.what{font-size:1.06rem;line-height:1.85;margin:0;max-width:72ch}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 22px}
+.sec h4{margin:0 0 4px;font:800 .8rem/1.6 var(--f-head);letter-spacing:.02em;color:var(--accent)}
+.sec ul,.sec ol{margin:0;padding-inline-start:1.3em}
+.sec li{margin:2px 0}
+.sec li.sub{list-style:none;margin-inline-start:-1.3em;padding-inline-start:1.3em;color:var(--muted)}
+.sec p{margin:0}
+.sec code,.what code,.note code{font-family:var(--f-code);font-size:.86em;direction:ltr;unicode-bidi:isolate}
+.links{display:flex;flex-wrap:wrap;gap:6px}
+.link{border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:999px;padding:2px 10px 2px 12px;font:500 .8rem/1.6 var(--f-body);cursor:pointer}
+.link b{font-family:var(--f-code);font-weight:600;color:var(--accent);margin-inline-end:4px}
+.link:hover,.link:focus-visible{border-color:var(--accent);outline:none}
+.none{color:var(--muted);font-size:.85rem}
+.note{background:var(--accent-soft);border-radius:10px;padding:10px 14px;font-size:.92rem;margin:0}
+.codebox{border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+.codebar{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--code-bg);color:var(--code-ln);font:500 .78rem/1 var(--f-code);padding:10px 14px;direction:ltr}
+.codebar button{font:600 .76rem/1 var(--f-body);background:transparent;color:var(--code-ink);border:1px solid var(--code-ln);border-radius:8px;padding:6px 10px;cursor:pointer}
+pre.code{margin:0;background:var(--code-bg);color:var(--code-ink);font:13px/1.65 var(--f-code);direction:ltr;text-align:left;overflow:auto;max-height:560px;padding:10px 0}
+pre.code .l{display:block;padding-inline:14px;white-space:pre}
+pre.code .l:hover{background:rgba(255,255,255,.04)}
+pre.code .n{display:inline-block;width:3.2em;color:var(--code-ln);user-select:none;-webkit-user-select:none;text-align:right;margin-right:14px}
+.tk{color:var(--k)}.ts{color:var(--s)}.tc{color:var(--c);font-style:italic}.td{color:var(--d)}.tn{color:var(--num)}
+.nav{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.nav button{font:600 .9rem/1 var(--f-body);border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:10px;padding:11px 16px;cursor:pointer;max-width:100%}
+.nav button:hover{border-color:var(--accent)}
+.nav button:disabled{opacity:.4;cursor:default}
+@media (max-width:860px){
+  .tour{grid-template-columns:minmax(0,1fr)}
+  .line{position:static;max-height:none;padding:8px}
+  .phase{padding:4px 0 8px}
+  .stops{display:flex;overflow-x:auto;gap:4px;padding-bottom:4px}
+  .stops::before{display:none}
+  .stop{grid-template-columns:30px;justify-items:center;width:auto;min-width:96px;max-width:120px;text-align:center}
+  .stop .fn{display:none}
+  .stop .t{font-size:.74rem}
+  .grid2{grid-template-columns:minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:no-preference){.card{animation:cin .22s ease-out}@keyframes cin{from{opacity:.4;transform:translateY(4px)}to{opacity:1;transform:none}}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>رحلة الجراف بالكود</h1>
+    <p>من لما تبعت الجراف للسيرفر، لحد ما المتصفح يرسم الشرح. كل خطوة = <b>function وحدة</b>: شو بتعمل، شو بتاخد، شو بتطلّع، ومين بتنادي. والكود تحتها هو الكود الحقيقي من الملفات، بأرقام سطوره.</p>
+    <div class="flow" aria-label="الطريق باختصار"><span><b>routes</b> ← service</span><span>explain_main.run</span><span>graph_reader</span><span>explain_lesson ← المشاهد</span><span>icon_for ← الليغو</span><span>check_scene ← حفظ</span><span>pack ← page_html ← المتصفح</span></div>
+  </header>
+  <div class="tour">
+    <nav class="line" id="line" aria-label="خطوات الباك إند"></nav>
+    <article class="card" id="card" aria-live="polite"></article>
+  </div>
+</div>
+<script>
+const TOUR=/*TOUR*/null;
+(function(){
+  const S=TOUR.steps, P=TOUR.phases, byN=n=>S[n-1];
+  const esc=t=>String(t==null?"":t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  const ar=n=>String(n).replace(/\d/g,d=>"٠١٢٣٤٥٦٧٨٩"[d]);
+  const inl=t=>{const x=String(t==null?"":t),re=/[A-Za-z_][\w.]*(?:\(\))?|\/\*DATA\*\/null/g;let out="",last=0,m;   /* English names → <code> (escaped piece by piece) */
+    while((m=re.exec(x))){out+=esc(x.slice(last,m.index));out+=m[0].length>2?`<code>${esc(m[0])}</code>`:esc(m[0]);last=re.lastIndex;}return out+esc(x.slice(last));};
+  /* ---- the line of stops ---- */
+  const line=document.getElementById("line");
+  line.innerHTML=P.map(ph=>`<section class="phase"><h2>${esc(ph.title)}</h2><p>${esc(ph.desc)}</p><ol class="stops">${
+    S.filter(s=>s.phase===ph.id).map(s=>`<li><button class="stop${s.optional?" opt":""}" data-n="${s.n}" type="button"><span class="num">${s.n}</span><span><span class="t">${esc(s.title)}</span><span class="fn">${esc(s.func||(s.file?s.file.split("/").pop():"—"))}</span></span></button></li>`).join("")}</ol></section>`).join("");
+  /* ---- Python colours (small and enough: keywords, strings, comments, numbers, def/class names) ---- */
+  const KW=new Set("def class return if elif else for while in not and or is None True False import from as with try except finally raise lambda yield pass break continue global nonlocal assert del async await".split(" "));
+  const BI=new Set("len str int float dict list set tuple sorted sum min max any all open print range enumerate zip isinstance getattr super self cls".split(" "));
+  function colour(code){
+    const re=/("""[\s\S]*?"""|'''[\s\S]*?'''|[rRfFbBuU]{0,2}"(?:\\.|[^"\\\n])*"|[rRfFbBuU]{0,2}'(?:\\.|[^'\\\n])*'|#[^\n]*|\b\d+(?:\.\d+)?\b|\b[A-Za-z_]\w*\b)/g;
+    const out=[];let last=0,m,prev="";
+    while((m=re.exec(code))){if(m.index>last)out.push(["",code.slice(last,m.index)]);const t=m[0];let c="";
+      if(t[0]==="#")c="tc";else if(/^[rRfFbBuU]{0,2}["']/.test(t))c="ts";else if(/^\d/.test(t))c="tn";
+      else if(KW.has(t))c="tk";else if(prev==="def"||prev==="class")c="td";else if(BI.has(t))c="tk";
+      out.push([c,t]);if(/^\w+$/.test(t))prev=t;last=re.lastIndex;}
+    if(last<code.length)out.push(["",code.slice(last)]);
+    const lines=[[]];out.forEach(([c,t])=>{t.split("\n").forEach((part,i)=>{if(i)lines.push([]);if(part)lines[lines.length-1].push(c?`<span class="${c}">${esc(part)}</span>`:esc(part));});});
+    return lines;}
+  function codeBox(s){if(!s.code)return "";const L=colour(s.code);
+    return `<div class="codebox"><div class="codebar"><span>${esc(s.file)} · lines ${s.start}–${s.end}</span><button type="button" id="copy">انسخ الكود</button></div>
+      <pre class="code">${L.map((l,i)=>`<span class="l"><span class="n">${s.start+i}</span>${l.join("")}</span>`).join("")}</pre></div>`;}
+  const links=arr=>arr&&arr.length?`<div class="links">${arr.map(n=>`<button class="link" data-n="${n}" type="button"><b>${n}</b>${esc(byN(n).title)}</button>`).join("")}</div>`:`<p class="none">ولا وحدة من خطوات الرحلة.</p>`;
+  function show(n,push){n=Math.max(1,Math.min(S.length,n));const s=byN(n);
+    document.querySelectorAll(".stop").forEach(b=>b.setAttribute("aria-current",String(+b.dataset.n===n)));
+    const ph=P.find(p=>p.id===s.phase);
+    document.getElementById("card").innerHTML=`
+      <div class="head"><div class="big">${n}</div><div><h3>${esc(s.title)}</h3>
+        <div class="meta">${s.func?`<code>${esc(s.func)}()</code>`:""}${s.file?`<code>${esc(s.file)}</code>`:""}${s.start?`<span>سطر ${ar(s.start)}–${ar(s.end)}</span>`:""}<span>${esc(ph.title)}</span>${s.optional?`<span class="pill">بس مع الموديل</span>`:""}</div></div></div>
+      <p class="what">${inl(s.what)}</p>
+      <div class="grid2">
+        <div class="sec"><h4>بتاخد</h4><ul>${s.takes.map(t=>`<li>${inl(t)}</li>`).join("")}</ul></div>
+        <div class="sec"><h4>بتطلّع</h4><p>${inl(s.gives)}</p></div>
+      </div>
+      <div class="sec"><h4>بتعمل، بالترتيب</h4><ol>${s.does.map(t=>t.startsWith("  ")?`<li class="sub">${inl(t.trim())}</li>`:`<li>${inl(t)}</li>`).join("")}</ol></div>
+      ${s.note?`<p class="note">${inl(s.note)}</p>`:""}
+      <div class="grid2">
+        <div class="sec"><h4>بتستعمل هالخطوات</h4>${links(s.calls)}</div>
+        <div class="sec"><h4>مين بيستعملها</h4>${links(s.called_by)}</div>
+      </div>
+      ${codeBox(s)}
+      <div class="nav"><button type="button" id="prev" ${n===1?"disabled":""}>→ ${n>1?esc(byN(n-1).title):"البداية"}</button><button type="button" id="next" ${n===S.length?"disabled":""}>${n<S.length?esc(byN(n+1).title):"النهاية"} ←</button></div>`;
+    const cp=document.getElementById("copy");if(cp)cp.addEventListener("click",()=>{const t=s.code;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{cp.textContent="✓ انسخ";},()=>{const r=document.createRange();r.selectNodeContents(document.querySelector("pre.code"));const sel=getSelection();sel.removeAllRanges();sel.addRange(r);cp.textContent="محدّد: Ctrl+C";});});
+    const pv=document.getElementById("prev"),nx=document.getElementById("next");
+    pv.addEventListener("click",()=>show(n-1,true));nx.addEventListener("click",()=>show(n+1,true));
+    document.querySelectorAll("#card .link").forEach(b=>b.addEventListener("click",()=>show(+b.dataset.n,true)));
+    if(push){try{history.replaceState(null,"","#s"+n);}catch(e){}const c=document.getElementById("card");if(c.getBoundingClientRect().top<0)c.scrollIntoView({block:"start"});}
+    const cur=document.querySelector(`.stop[data-n="${n}"]`);if(cur&&cur.scrollIntoView){const ln=document.getElementById("line");const r=cur.getBoundingClientRect(),q=ln.getBoundingClientRect();if(r.top<q.top||r.bottom>q.bottom||r.left<q.left||r.right>q.right)cur.scrollIntoView({block:"nearest",inline:"center"});}
+    try{localStorage.setItem("tour-step",String(n));}catch(e){}}
+  line.addEventListener("click",e=>{const b=e.target.closest(".stop");if(b)show(+b.dataset.n,true);});
+  document.addEventListener("keydown",e=>{if(e.target.closest("input,textarea"))return;const n=+((document.querySelector('.stop[aria-current="true"]')||{}).dataset||{}).n||1;
+    if(e.key==="ArrowLeft")show(n+1,true);if(e.key==="ArrowRight")show(n-1,true);});
+  let start=1;const h=(location.hash||"").match(/^#s(\d+)$/);if(h)start=+h[1];else{try{start=+(localStorage.getItem("tour-step")||1)||1;}catch(e){}}
+  show(start,false);
+})();
+</script>
+</body>
+</html>

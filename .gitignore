@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+02_question_factory/explain_out*/
+02_question_factory/tests_browser/shots/
+api_key.txt
+.env
+05_explanation_api/data/

@@ -1,0 +1,28 @@
+<style>
+/* ===== drawn art ===== */
+.alive.art{width:1.32em;height:1.32em;vertical-align:-.3em}
+.alive.art .ch{width:100%;height:100%;overflow:visible;display:block}
+.alive.art.a-sun{animation:aGlow 2.2s ease-in-out infinite!important}
+.ch .rays{transform-box:view-box;transform-origin:50px 50px;animation:aSun 12s linear infinite}
+.ch .seye{transform-box:fill-box;transform-origin:center;animation:sblink 4.4s infinite}
+.alive:nth-child(2n) .ch .seye{animation-delay:-1.7s}
+@keyframes sblink{0%,46%,50%,100%{transform:scaleY(1)}48%{transform:scaleY(.1)}}
+.ch .m{display:none}.ch .m-happy{display:inline}.ch .brows{display:none}
+[data-mood="sad"] .ch .m-happy,[data-mood="angry"] .ch .m-happy,[data-mood="o"] .ch .m-happy,[data-mood="laugh"] .ch .m-happy,.wow .ch .m-happy{display:none}
+[data-mood="sad"] .ch .m-sad,[data-mood="angry"] .ch .m-angry,[data-mood="o"] .ch .m-o,[data-mood="laugh"] .ch .m-laugh{display:inline}
+.char.wow .ch .m{display:none}.char.wow .ch .m-o{display:inline}
+[data-mood="sad"] .ch .brows,[data-mood="angry"] .ch .brows{display:inline}
+.ch .brow{transform-box:fill-box;transform-origin:center}
+[data-mood="angry"] .ch .bl{transform:rotate(20deg) translateY(2px)}[data-mood="angry"] .ch .br{transform:rotate(-20deg) translateY(2px)}
+[data-mood="sad"] .ch .bl{transform:rotate(-16deg)}[data-mood="sad"] .ch .br{transform:rotate(16deg)}
+.char{display:inline-grid;place-items:center}
+.char.a-sun{animation:aGlow 2.2s ease-in-out infinite!important}
+.char .ch.big{width:78px;height:78px;overflow:visible}
+.mascot .m-body{font-size:0;width:48px;height:48px}
+.mascot .ch.mascotart{width:48px;height:48px;overflow:visible}
+.welcome .big{font-size:3.2rem}
+.kstone .si{font-size:1.6rem}
+.mterm .ic,.mdef .ic{font-size:1.5rem}
+.road .rsign{font-size:1.6rem}
+@media (max-width:520px){.char .ch.big{width:64px;height:64px}}
+</style>

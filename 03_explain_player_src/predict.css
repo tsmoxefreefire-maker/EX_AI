@@ -1,0 +1,14 @@
+<style>
+/* 14: what happens if…? — a village of characters, then dominoes */
+.village{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-bottom:12px}
+.villager{position:relative;display:grid;justify-items:center;gap:2px;padding-top:24px;transition:transform .8s,opacity .8s,filter .8s}
+.villager .vname{font-weight:800;font-size:.9rem}
+.villager .bsay{top:auto;bottom:calc(100% - 22px)}
+.villager.poof{transform:translateY(-40px) scale(.2) rotate(-25deg);opacity:0}
+.villager.tired{transform:rotate(-8deg) translateY(6px);filter:saturate(.35)}   /* not "droop": that name already means "fade out" in the match game */
+#popts{display:grid;gap:8px;max-width:620px;margin:0 auto}
+#popts .opt{border:2px solid var(--line);background:var(--panel);border-radius:14px;padding:11px 14px;text-align:start;font-weight:700;cursor:pointer;direction:auto;transition:transform .15s}
+#popts .opt:hover{border-color:var(--brand);transform:translateY(-2px)}
+#popts .opt.right{border-color:var(--good);background:color-mix(in srgb,var(--good) 16%,var(--panel))}
+#popts .opt.nope{border-color:var(--bad);opacity:.5;text-decoration:line-through}
+</style>

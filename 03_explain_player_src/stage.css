@@ -1,0 +1,68 @@
+<style>
+/* ======================= 👥 THE AGE STAGES: the look of each age (stage.js sets body[data-stage]) =======================
+   kids = the original look (nothing here). junior = calmer. teen = a lab notebook (cool colours, squared paper, eyes only).
+   senior = a science studio (textbook diagrams: no faces, thin lines, callout bubbles, a quiet palette). Every colour is a token, light + dark. */
+
+/* ---------- 🧭 junior (5–7): the same friends, calmer ---------- */
+body[data-stage="junior"] .welcome .big{animation:none}
+body[data-stage="junior"] .sface .scheek{display:none}
+body[data-stage="junior"] .welcome{background:linear-gradient(135deg,color-mix(in srgb,var(--brand) 12%,var(--panel)),var(--panel))}
+
+/* ---------- 🔬 teen (8–9): a lab notebook ---------- */
+body[data-stage="teen"]{--bg:#EDF1F5;--panel:#FFFFFF;--ink:#1B2733;--muted:#566778;--line:#CFD9E3;--chip:#E8EEF4;--brand:#2F6FA8;--good:#2E8B6E;--warn:#B7791F;--grid:#E4EBF2;--focus:#2F6FA8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) body[data-stage="teen"]{--bg:#0F1720;--panel:#16212C;--ink:#E3EAF1;--muted:#97A6B5;--line:#2A3846;--chip:#1D2A37;--brand:#6AA8DC;--good:#4DBB94;--warn:#E0B054;--grid:#1C2834;--focus:#6AA8DC}}
+:root[data-theme="dark"] body[data-stage="teen"]{--bg:#0F1720;--panel:#16212C;--ink:#E3EAF1;--muted:#97A6B5;--line:#2A3846;--chip:#1D2A37;--brand:#6AA8DC;--good:#4DBB94;--warn:#E0B054;--grid:#1C2834;--focus:#6AA8DC}
+
+/* ---------- 📐 senior (10–12): a science studio ---------- */
+body[data-stage="senior"]{--bg:#F4F5F7;--panel:#FFFFFF;--ink:#111827;--muted:#4B5563;--line:#D5D9E0;--chip:#EEF0F3;--brand:#0F766E;--good:#15803D;--warn:#B45309;--grid:#EEF1F4;--focus:#0F766E}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) body[data-stage="senior"]{--bg:#0B1114;--panel:#12191D;--ink:#E5E9EC;--muted:#9AA5AD;--line:#26323A;--chip:#18222A;--brand:#4FC3B5;--good:#4CC07A;--warn:#E3A857;--grid:#172126;--focus:#4FC3B5}}
+:root[data-theme="dark"] body[data-stage="senior"]{--bg:#0B1114;--panel:#12191D;--ink:#E5E9EC;--muted:#9AA5AD;--line:#26323A;--chip:#18222A;--brand:#4FC3B5;--good:#4CC07A;--warn:#E3A857;--grid:#172126;--focus:#4FC3B5}
+
+/* shared by the two bigger stages: a quieter page */
+body[data-stage="teen"],body[data-stage="senior"]{background:var(--bg)}
+body[data-stage="teen"] .welcome,body[data-stage="senior"] .welcome{background:var(--panel);border:1px solid var(--line);border-inline-start:4px solid var(--brand);border-radius:12px}
+body[data-stage="teen"] .welcome h1,body[data-stage="senior"] .welcome h1{font-size:clamp(1.2rem,2.6vw,1.6rem);text-wrap:balance}
+.stg-ic{font-size:1.7rem;line-height:1;display:grid;place-items:center;width:2.6rem;height:2.6rem;border-radius:10px;background:var(--chip);flex:none}
+body[data-stage="teen"] .xwrap,body[data-stage="senior"] .xwrap{background-color:var(--panel);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px;border-radius:12px}
+body[data-stage="teen"] .btn,body[data-stage="senior"] .btn{border-radius:10px}
+body[data-stage="teen"] .chipbtn,body[data-stage="senior"] .chipbtn{border-radius:8px}
+body[data-stage="teen"] .spark,body[data-stage="senior"] .spark,body[data-stage="teen"] .conf,body[data-stage="senior"] .conf{display:none}
+/* the characters do not hop or bounce: who is talking gets a quiet glow instead */
+body[data-stage="teen"] .hop .xbody,body[data-stage="senior"] .hop .xbody,body[data-stage="teen"] .talking .xbody,body[data-stage="senior"] .talking .xbody{animation:none!important}
+body[data-stage="teen"] .xnode.talking .xbody,body[data-stage="senior"] .xnode.talking .xbody{filter:drop-shadow(0 0 4px var(--brand))}
+body[data-stage="teen"] .alive,body[data-stage="senior"] .alive{animation:none!important}
+/* teen: eyes only (no eyebrows, cheeks or mouths): a classmate, not a cartoon */
+body[data-stage="teen"] .sface .scheek,body[data-stage="teen"] .sface .brows,body[data-stage="teen"] .sface .m{display:none!important}
+/* senior: no faces at all — the drawings are diagrams; thinner lines, calmer colours */
+body[data-stage="senior"] .sface{display:none!important}
+body[data-stage="senior"] .xstage .ch [stroke="#3b2a1a"]{stroke-width:1.6px}
+body[data-stage="senior"] .xstage .ch{filter:saturate(.82)}
+body[data-stage="senior"] .xname{font-family:"IBM Plex Sans Arabic","Noto Kufi Arabic",sans-serif;font-weight:600;text-decoration:none;letter-spacing:.2px;fill:var(--ink)}
+body[data-stage="senior"] #saylayer .bub rect{rx:4px;ry:4px}
+body[data-stage="senior"] #saylayer .bub text{font-weight:600!important}
+body[data-stage="senior"] .xnode.dim{opacity:.35}
+body[data-stage="senior"] .spotdim{opacity:.36}
+body[data-stage="senior"] .why{background:var(--chip);border-inline-start-color:var(--brand)}
+/* the switcher (try any stage) */
+.stgsw{margin-inline-start:auto;display:flex;align-items:center;gap:6px;font-size:.85rem;font-weight:700;color:var(--muted);flex-wrap:wrap}
+.stgsw select{font:inherit;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:4px 8px;max-width:100%}
+.welcome{flex-wrap:wrap}.welcome>div{min-width:0;flex:1 1 260px}
+@media (prefers-reduced-motion:reduce){body[data-stage] .xnode .xbody{animation:none!important}}
+</style>
+<style>
+/* 📐 the science sliders (line · motion · acceleration): drawn with the theme colours */
+.scgrid{stroke:var(--line);stroke-width:1;opacity:.7}.scaxis{stroke:var(--ink);stroke-width:2;fill:none}
+.scline{stroke:var(--brand);stroke-width:4;fill:none;stroke-linecap:round}.scrun{stroke:var(--warn);stroke-width:2.5;fill:none;stroke-dasharray:5 4}
+.scpt{fill:var(--warn);stroke:var(--ink);stroke-width:2}.scdone{stroke:var(--good);stroke-width:6;stroke-linecap:round}
+.scghost{fill:var(--brand);opacity:.45}.sccar{fill:var(--brand);stroke:var(--ink);stroke-width:2}.scwheel{fill:var(--ink)}
+.scdial{fill:none;stroke:var(--line);stroke-width:10;stroke-linecap:round}.scneedle{stroke:var(--warn);stroke-width:4;stroke-linecap:round}
+.sclab{fill:var(--ink);font-size:14px;font-weight:700}.scsmall{fill:var(--ink);font-size:12px;font-weight:700}.sctiny{fill:var(--muted);font-size:11px}
+.sl{grid-template-columns:minmax(120px,max-content) minmax(0,1fr) minmax(52px,max-content)!important}.sl b{text-align:center;font-variant-numeric:tabular-nums}   /* long labels («التسارع (م/ث²)») and numbers («−2.5») fit */
+</style>
+<style>
+/* 🤖 model-written scenes: in a sandboxed frame, with an honest label */
+.xmini{height:0!important;min-height:0!important;display:block}
+.cframe{display:block;width:100%;height:440px;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+.cnote{margin:4px 0 8px;padding:6px 12px;border-radius:10px;background:var(--chip);font-size:.86rem;font-weight:700;color:var(--muted)}
+.cbadge{margin:6px 0 0;font-size:.8rem;color:var(--muted);text-align:center}
+</style>

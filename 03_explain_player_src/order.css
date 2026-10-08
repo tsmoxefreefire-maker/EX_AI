@@ -1,0 +1,6 @@
+<style>
+.kstone.locked,.kcard.locked{opacity:.5;filter:grayscale(.5)}
+.klk{position:absolute;top:4px;inset-inline-start:6px;font-size:.85rem}
+.kcard{position:relative}
+#auto{font-weight:700}
+</style>

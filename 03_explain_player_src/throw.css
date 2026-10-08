@@ -1,0 +1,5 @@
+<style>
+.drag-ghost.floating{cursor:grab;box-shadow:0 0 0 3px rgba(242,179,61,.35),0 10px 24px rgba(0,0,0,.18)}
+#openAll{min-width:38px}
+#openAll[aria-pressed="true"]{border-color:var(--good);background:color-mix(in srgb,var(--good) 16%,var(--panel))}
+</style>

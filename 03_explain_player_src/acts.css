@@ -1,0 +1,72 @@
+<style>
+/* ===== 🆕 batch 26: the 5 new activities (every class starts with «na-») + hover per stage («hv-») + the sound demo button ===== */
+/* 🧪 recipe */
+.na-p.na-poff{opacity:.22}.na-p.na-poff .xarrow{stroke-dasharray:6 7}.na-p.na-poff .needs{opacity:.4}
+.na-ring0{fill:none;stroke:var(--line);stroke-width:6;opacity:.6}
+.na-ring{fill:none;stroke:var(--good);stroke-width:6;stroke-linecap:round;transition:stroke-dasharray .45s ease-out}
+.xnode.na-offn{opacity:.5}.xnode.na-offn .xbody{filter:grayscale(.8)}
+.na-tgt.na-ready .xbody{filter:drop-shadow(0 0 9px var(--good))}
+.na-sw{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;max-width:680px;margin:8px auto 2px;padding:0 6px}
+.na-tog{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:8px 14px;border:1.5px solid var(--line);border-radius:999px;background:var(--panel);color:var(--ink);font:inherit;font-weight:800;cursor:pointer;line-height:1.4}
+.na-tog[aria-pressed="true"]{border-color:var(--good);background:color-mix(in srgb,var(--good) 14%,var(--panel))}
+.na-led{width:12px;height:12px;border-radius:50%;background:var(--line);flex:none;transition:background .3s,box-shadow .3s}
+.na-tog[aria-pressed="true"] .na-led{background:var(--good);box-shadow:0 0 0 4px color-mix(in srgb,var(--good) 25%,transparent)}
+.na-ts{font-size:.84rem;color:var(--muted);font-weight:700}
+.na-count{text-align:center;font-weight:800;color:var(--muted);margin:4px 0;font-variant-numeric:tabular-nums}
+/* ✏️ connect */
+.na-cn{cursor:pointer}.na-cn.na-sel .xbody{filter:drop-shadow(0 0 3px var(--brand)) drop-shadow(0 0 8px var(--brand))}
+.na-rubber{stroke:var(--brand);stroke-width:4;stroke-dasharray:8 6;stroke-linecap:round}
+.na-wrongline{stroke:var(--bad,#C0392B);stroke-width:4;stroke-dasharray:6 6;stroke-linecap:round;opacity:.85}
+.na-arr{animation:naIn .35s ease-out}.na-arr.na-bonus .xarrow{stroke-width:3;opacity:.7}
+.na-ghost{opacity:.4}.na-ghost .xarrow{stroke-dasharray:6 6}
+.na-crow{gap:10px;align-items:center;flex-wrap:wrap;margin-top:6px}.na-help{min-height:40px}
+/* ⚖️ compare */
+.na-venn{stroke-width:2}.na-va{fill:color-mix(in srgb,var(--brand) 9%,transparent);stroke:color-mix(in srgb,var(--brand) 55%,transparent)}
+.na-vb{fill:color-mix(in srgb,var(--good) 9%,transparent);stroke:color-mix(in srgb,var(--good) 55%,transparent)}
+.na-vlab{font-weight:800;font-size:13px;fill:var(--muted)}
+.na-tray{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;max-width:700px;margin:8px auto;padding:0 6px}
+.na-card{display:flex;align-items:center;justify-content:center;text-align:center;min-height:44px;max-width:320px;padding:8px 12px;border:1.5px solid var(--line);border-radius:12px;background:var(--panel);color:var(--ink);font-weight:700;line-height:1.7;cursor:pointer;overflow-wrap:break-word}
+.na-card:hover{border-color:var(--brand)}
+.na-card.na-picked{border-color:var(--brand);box-shadow:0 0 0 3px color-mix(in srgb,var(--brand) 30%,transparent)}
+.na-zones{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;max-width:740px;margin:8px auto;padding:0 6px}
+@media (max-width:600px){.na-zones{grid-template-columns:minmax(0,1fr)}}
+.na-zone{border:2px dashed var(--line);border-radius:14px;padding:8px;min-height:84px;background:var(--chip);cursor:pointer;min-width:0}
+.na-z-a{border-color:color-mix(in srgb,var(--brand) 55%,var(--line))}.na-z-b{border-color:color-mix(in srgb,var(--good) 55%,var(--line))}
+.na-zh{display:block;text-align:center;font-weight:900;margin-bottom:6px;overflow-wrap:break-word}
+.na-zl{display:flex;flex-direction:column;gap:6px}
+.na-placed{background:var(--panel);border-radius:10px;padding:6px 10px;font-weight:700;line-height:1.65;font-size:.92rem;overflow-wrap:break-word;animation:naIn .35s ease-out}
+.na-zone.na-nope{animation:naNope .4s}
+@keyframes naNope{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+@keyframes naIn{from{opacity:0}to{opacity:1}}
+/* 🧑‍🏫 teach */
+.na-chat{display:flex;flex-direction:column;gap:8px;max-width:660px;margin:8px auto;padding:0 6px}
+.na-msg{padding:8px 12px;border-radius:14px;font-weight:700;line-height:1.75;max-width:88%;overflow-wrap:break-word;animation:naIn .3s ease-out}
+.na-msg.na-me{align-self:flex-start;background:color-mix(in srgb,var(--brand) 14%,var(--panel))}
+.na-msg.na-them{align-self:flex-end;background:var(--chip)}
+.na-msg .kw{white-space:normal}
+.na-opts{display:flex;flex-direction:column;gap:8px;max-width:660px;margin:8px auto;padding:0 6px}
+.na-opt{min-height:44px;padding:10px 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--panel);color:var(--ink);font:inherit;font-weight:800;line-height:1.7;text-align:start;cursor:pointer;overflow-wrap:break-word}
+.na-opt:hover:not(:disabled){border-color:var(--brand)}.na-opt.na-wrong{opacity:.55;text-decoration:line-through;cursor:default}
+.na-note{max-width:660px;margin:10px auto;padding:12px 14px;border-radius:14px;border:2px solid var(--good);background:color-mix(in srgb,var(--good) 10%,var(--panel));font-weight:700;line-height:1.9}
+/* 🪜 ladder */
+.na-rail{stroke:var(--line);stroke-width:6;stroke-linecap:round;fill:none;opacity:.7}.na-rungline{stroke:var(--line);stroke-width:4;opacity:.45}
+.xnode.na-hid{opacity:0;pointer-events:none}
+.na-slot circle{fill:none;stroke:var(--line);stroke-width:2.5;stroke-dasharray:6 6}.na-slot text{fill:var(--muted);font-size:26px;font-weight:900}
+.na-slot{transition:opacity .4s}.na-slot.na-found{opacity:0}
+.na-ring{transition:stroke-dasharray .45s ease-out,opacity .3s}
+.na-lrow{gap:10px;margin-top:6px}
+/* the grown-up stages: calmer corners */
+body[data-stage="teen"] .na-tog,body[data-stage="senior"] .na-tog{border-radius:10px}
+body[data-stage="teen"] .na-card,body[data-stage="senior"] .na-card,body[data-stage="senior"] .na-zone,body[data-stage="senior"] .na-opt{border-radius:8px}
+/* 👆 hover per stage: kids hop (as before) · junior leans, curious · teen glows · senior: name + meaning appear */
+body[data-stage="junior"] .xnode.hv-junior .xbody{animation:hvLean .7s ease-in-out 1}
+@keyframes hvLean{30%{transform:rotate(-6deg)}70%{transform:rotate(4deg)}}
+body[data-stage="teen"] .xnode.hv-teen .xbody{filter:drop-shadow(0 0 6px var(--brand))}
+body[data-stage="senior"] .xnode.hv-senior .xname{text-decoration:underline;text-decoration-thickness:2px}
+#hvlayer .hvtip rect{fill:var(--panel);stroke:var(--line);stroke-width:1.5}
+#hvlayer .hvtip text{fill:var(--ink);font-size:12.5px;font-weight:700}
+#hvlayer .hvtip text.hvn{font-weight:900;fill:var(--brand)}
+/* 🎵 the sound demo button (next to the stage switcher) */
+.stg-snd{margin-inline-start:6px;white-space:nowrap}
+@media (prefers-reduced-motion:reduce){.na-arr,.na-placed,.na-msg{animation:none}.na-zone.na-nope{animation:none}body[data-stage="junior"] .xnode.hv-junior .xbody{animation:none}}
+</style>

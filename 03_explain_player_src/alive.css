@@ -1,0 +1,43 @@
+<style>
+/* ===== every picture is alive ===== */
+.alive{display:inline-block;transform-origin:50% 70%;will-change:transform}
+.a-bob{animation:aBob 2.4s ease-in-out infinite}
+.a-leaf{animation:aLeaf 2.2s ease-in-out infinite}
+.a-sway{animation:aSway 2.6s ease-in-out infinite;transform-origin:50% 100%}
+.a-grow{animation:aGrow 2.2s ease-in-out infinite;transform-origin:50% 100%}
+.a-wind{animation:aWind 1.8s ease-in-out infinite}
+.a-sun{animation:aSun 6s linear infinite,aGlow 2s ease-in-out infinite;transform-origin:50% 50%}
+.a-drip{animation:aDrip 1.6s ease-in infinite;transform-origin:50% 0%}
+.a-wobble{animation:aWobble 2s ease-in-out infinite}
+.a-bounce{animation:aBounce 1.4s ease-in-out infinite;transform-origin:50% 100%}
+.a-buzz{animation:aBuzz 1.2s linear infinite}
+.a-wiggle{animation:aWiggle 1.8s ease-in-out infinite}
+.a-chug{animation:aChug .7s ease-in-out infinite}
+.alive.poke{animation:aPoke .45s ease-out!important}
+@keyframes aBob{50%{transform:translateY(-4px)}}
+@keyframes aLeaf{0%,100%{transform:rotate(-12deg) translate(0,0)}25%{transform:rotate(8deg) translate(3px,-3px)}50%{transform:rotate(14deg) translate(0,-5px)}75%{transform:rotate(-4deg) translate(-3px,-2px)}}
+@keyframes aSway{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
+@keyframes aGrow{0%,100%{transform:scale(1)}50%{transform:scale(1.12,1.18)}}
+@keyframes aWind{0%{transform:translateX(5px);opacity:.55}50%{transform:translateX(-5px);opacity:1}100%{transform:translateX(5px);opacity:.55}}
+@keyframes aSun{to{transform:rotate(360deg)}}
+@keyframes aGlow{50%{filter:drop-shadow(0 0 6px #F2B33D) brightness(1.15)}}
+@keyframes aDrip{0%{transform:translateY(-3px) scale(1,.9)}60%{transform:translateY(3px) scale(.9,1.12)}80%{transform:translateY(1px) scale(1.12,.86)}100%{transform:translateY(-3px) scale(1,.9)}}
+@keyframes aWobble{0%,100%{transform:rotate(0)}25%{transform:rotate(-9deg)}75%{transform:rotate(9deg)}}
+@keyframes aBounce{0%,100%{transform:translateY(0) scale(1,1)}40%{transform:translateY(-6px) scale(.96,1.04)}55%{transform:translateY(0) scale(1.08,.92)}}
+@keyframes aBuzz{0%{transform:translate(0,0)}25%{transform:translate(3px,-3px) rotate(6deg)}50%{transform:translate(-2px,1px)}75%{transform:translate(2px,3px) rotate(-6deg)}100%{transform:translate(0,0)}}
+@keyframes aWiggle{0%,100%{transform:skewX(0)}30%{transform:skewX(-8deg)}60%{transform:skewX(8deg)}}
+@keyframes aChug{50%{transform:translateY(-2px) rotate(-2deg)}}
+@keyframes aPoke{0%{transform:scale(1)}35%{transform:scale(1.45) rotate(-12deg)}70%{transform:scale(.9) rotate(8deg)}100%{transform:scale(1)}}
+/* ===== the intruder game: living buddies with googly eyes ===== */
+.bface{position:relative;display:grid;place-items:center;width:64px;height:64px}
+.bico{font-size:2.4rem;line-height:1}
+.gface{position:absolute;inset:0;pointer-events:none}
+.gface .eye{top:14px;width:14px;height:14px;border:1.5px solid #1b1b1b}
+.gface .eye.l{left:13px}.gface .eye.r{right:13px}
+.gface .pupil{left:3px;top:3px;width:6px;height:6px;animation:look 3s ease-in-out infinite}
+@keyframes look{0%,100%{margin-left:-2px}50%{margin-left:2px}}
+.gmouth{position:absolute;left:50%;bottom:10px;width:18px;height:8px;margin-left:-9px;border:3px solid #3b1d1d;border-color:#3b1d1d transparent transparent transparent;border-radius:50% 50% 0 0;transition:all .3s}
+.gmouth.happy{border-color:transparent transparent #3b1d1d transparent;border-radius:0 0 50% 50%;bottom:6px;height:10px}
+.gmouth.angry{width:14px;margin-left:-7px;height:2px;border-width:3px 0 0 0;border-radius:0}
+@media (prefers-reduced-motion:reduce){.alive{animation:none!important}}
+</style>

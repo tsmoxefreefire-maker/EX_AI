@@ -1,0 +1,69 @@
+<style>
+/* ===== explanation player ===== */
+.xpage{display:grid;gap:14px;grid-template-columns:minmax(0,1fr)}
+.xpage>*{min-width:0}
+.card2{min-width:0}
+.card2{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px}
+#cpath{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#stabs{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+#stabs .kcard{min-width:150px}
+.xwrap{overflow-x:auto}
+.xstage{display:block;width:100%;min-width:520px;height:auto;color:var(--ink)}
+@media (max-width:520px){.xstage{min-width:460px}}
+.xname{font-weight:800;font-size:14px;fill:currentColor;font-family:"Baloo Bhaijaan 2","Noto Kufi Arabic",sans-serif}
+.xlabel{font-size:13px;fill:var(--muted);font-weight:700}
+.xtag{font-size:11px;fill:var(--muted);font-weight:700}
+.xnode{cursor:pointer;transition:opacity .4s}
+.xnode .xbody{animation:aBob 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+.xnode.dim{opacity:.25}
+.xnode.sleep .xbody{filter:grayscale(.8) brightness(.95);animation:none}
+.xnode.woke .xbody{animation:aBounce 1.2s ease-in-out 2,aBob 2.6s ease-in-out 2.4s infinite}
+.xnode.tired .xbody{filter:saturate(.25);transform:rotate(-8deg) translateY(6px);animation:none;transition:all .5s}
+.xnode.gone{opacity:.12;transition:opacity .6s}
+.xnode.calm .xbody{animation:aBob 3s ease-in-out infinite}
+.xarrow{fill:none;stroke:var(--muted);stroke-width:3;stroke-linecap:round;opacity:.55;color:var(--muted)}
+.xarrow.in{stroke:var(--water)}.xarrow.out{stroke:var(--good)}
+.xdot{fill:var(--water)}.xdot.out{fill:var(--good)}
+.xedge.lit .xarrow{opacity:1;stroke-width:4.5}
+.xedge.dim{opacity:.15}
+.xroad{fill:none;stroke:var(--line);stroke-width:6;stroke-dasharray:2 12;stroke-linecap:round}
+.xroad.lit{stroke:#F2B33D;stroke-dasharray:none;filter:drop-shadow(0 0 4px #F2B33D)}
+#trav{cursor:grab;touch-action:none}
+.bub rect{fill:var(--panel);stroke:var(--line);stroke-width:1.5}
+.bub text{font-size:12.5px;font-weight:700;fill:currentColor}
+.bub{animation:pop .3s}
+.cap{font-family:"Baloo Bhaijaan 2","Noto Kufi Arabic",sans-serif;font-weight:800;font-size:1.15rem;text-align:center;margin-top:10px;min-height:1.6em}
+.cap2{text-align:center;color:var(--brand);font-weight:700;min-height:1.4em}
+.cap2.pop2{animation:pop .35s}
+.stepper{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:10px}
+.dots{display:flex;gap:6px}.dots i{width:9px;height:9px;border-radius:50%;background:var(--line)}.dots i.on{background:var(--brand)}
+.xswitch{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:8px}
+.switch{width:64px;height:34px;border-radius:999px;border:2px solid var(--line);background:var(--chip);position:relative;cursor:pointer;padding:0}
+.switch .knob{position:absolute;top:3px;inset-inline-start:3px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3);transition:all .25s}
+.switch.on{background:var(--good);border-color:var(--good)}.switch.on .knob{inset-inline-start:33px}
+</style>
+<style>.xnode:focus{outline:none}.xnode:focus-visible .xname{text-decoration:underline;text-decoration-thickness:2px}</style>
+<style>
+/* one path: a thin progress bar + the stops of the lesson (no tabs) */
+.pbar{height:8px;border-radius:99px;background:var(--line);overflow:hidden}.pbar i{display:block;height:100%;background:var(--good);transition:width .4s}
+.pstops{display:flex;gap:6px;overflow-x:auto;padding:10px 2px 4px}
+.pstop{border:0;background:none;display:grid;justify-items:center;gap:2px;min-width:76px;max-width:84px;flex:0 0 auto;cursor:pointer;opacity:.55;font-family:inherit;color:inherit}
+.pstop .alive{font-size:1.6rem}.pstop small{font-size:.72rem;font-weight:700;line-height:1.3;text-align:center;white-space:normal}
+.pstop.on{opacity:1;transform:scale(1.08)}.pstop.on small{color:var(--brand)}.pstop.done{opacity:.85}
+.where{text-align:center;font-weight:800;color:var(--muted);font-size:.9rem}
+.xnum circle{fill:var(--brand)}.xnum text{fill:#fff;font-weight:800;font-size:13px}
+.legend{display:flex;justify-content:center;gap:18px;font-weight:800;font-size:.9rem;margin-top:4px}
+.lg.in{color:var(--water)}.lg.out{color:var(--good)}
+.xstage{min-width:0!important}
+.cap{font-size:1.2rem;line-height:1.7;max-width:640px;margin:12px auto 0}
+.bub text{font-size:13.5px}
+.xnode.dim{opacity:.22}
+</style>
+<style>
+.para{max-width:680px;margin:14px auto 4px;background:color-mix(in srgb,var(--brand) 7%,var(--panel));border:1px solid var(--line);border-inline-start:5px solid var(--brand);border-radius:12px;padding:12px 16px}
+.para b{display:block;font-family:"Baloo Bhaijaan 2","Noto Kufi Arabic",sans-serif;margin-bottom:4px;color:var(--brand)}
+.para p{margin:0;line-height:1.9;font-size:1.05rem}
+.cap{font-size:1.05rem!important;color:var(--muted)}
+</style>
+<style>.world .xtag{font-size:12px;font-weight:800;fill:#3b2a1a}.world{border-radius:14px;touch-action:none}#sun,#can{touch-action:none}</style>
+<style>.xglow{fill:none;stroke:#F2B33D;stroke-width:7;stroke-linecap:round;filter:drop-shadow(0 0 5px #F2B33D)}</style>

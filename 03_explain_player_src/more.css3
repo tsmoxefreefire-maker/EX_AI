@@ -1,0 +1,20 @@
+<style>
+.tray{fill:color-mix(in srgb,var(--brand) 6%,var(--panel));stroke:var(--line);stroke-width:2;stroke-dasharray:8 6}
+.shadow{opacity:.22;filter:grayscale(1) brightness(.3)}.shadow.filled{opacity:0}.xnode.piece{cursor:grab;touch-action:none}.xnode.lifted .xbody{transform:scale(1.15)}
+.xnode.talking .xbody{animation:aBounce .6s ease-in-out 2}
+.talk{max-width:600px;margin:6px auto;display:flex;flex-direction:column;gap:6px;max-height:200px;overflow:auto}.row.center{justify-content:center}
+.sliders{display:grid;gap:8px;max-width:520px;margin:8px auto}.sl{display:grid;grid-template-columns:120px 1fr 40px;align-items:center;gap:10px;font-weight:800}.sl b{text-align:center;font-size:1.2rem;color:var(--brand)}
+.pop1{animation:pop .25s}
+.fog{fill:#c9d3dc;opacity:.93;transition:opacity 1s}.fog.gone2{opacity:0}
+.fact rect{fill:var(--panel);stroke:#F2B33D;stroke-width:2.4}.fact text{font-weight:800;font-size:13.5px;fill:var(--ink)}.fact{opacity:.15;transition:opacity .4s}.fact.found{opacity:1}
+#xs{touch-action:none}
+/* cards: one flowing paragraph */
+.card2b{display:flex!important;align-items:center;justify-content:center;min-height:112px;padding:12px 14px;box-sizing:border-box;text-align:center}
+.card2b .face{display:block!important;width:100%;line-height:1.75;overflow-wrap:break-word}
+.card2b .face[hidden]{display:none!important}                 /* only ONE face at a time */
+.card2b .face .w,.card2b .face .kw{display:inline!important}
+.kw{white-space:nowrap}
+/* chat bubbles: wrap inside, never cut */
+.chat,.talk{width:100%;max-width:600px;box-sizing:border-box;padding:0 6px;overflow-x:hidden}
+.msg{max-width:85%;line-height:1.7;overflow-wrap:break-word}
+</style>

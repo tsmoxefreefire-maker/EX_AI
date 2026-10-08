@@ -1,0 +1,12 @@
+<style>
+.bigeq{font-family:"Baloo Bhaijaan 2","Noto Kufi Arabic",sans-serif;font-size:30px;font-weight:800;fill:currentColor}
+.bigeq.pop2{animation:pop .4s}
+.growin{animation:growin .6s cubic-bezier(.3,1.6,.5,1) both;transform-box:fill-box;transform-origin:center}
+@keyframes growin{from{transform:scale(0)}to{transform:scale(1)}}
+.windline{fill:none;stroke:#8EC9E8;stroke-width:4;stroke-linecap:round;stroke-dasharray:14 12;animation:wind 1s linear infinite}
+@keyframes wind{to{stroke-dashoffset:-52}}
+.sparkle{animation:spark 1.2s ease-out infinite}
+.drive{text-align:center;font-weight:800;color:var(--good);margin-top:6px;animation:pop .4s}
+.play .drag{cursor:grab;touch-action:none}
+.pa.from.shake{animation:shake .5s 2}
+</style>

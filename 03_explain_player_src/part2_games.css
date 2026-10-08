@@ -1,0 +1,178 @@
+<style>
+/* ---------- 1. مين الصادق؟ (meaning) ---------- */
+.namecard{display:block;width:max-content;margin:44px auto 12px;font-family:"Noto Kufi Arabic",sans-serif;font-weight:800;font-size:1.2rem;border-radius:14px;padding:8px 18px;background:var(--brand);color:#fff}
+.faces{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.fcard{position:relative;border:2px solid var(--line);border-radius:18px;padding:10px 10px 12px;background:color-mix(in srgb,var(--chip) 70%,var(--panel));cursor:pointer;display:grid;justify-items:center;gap:6px;text-align:center;transition:opacity .4s,transform .6s}
+.fcard .ftxt{font-size:.92rem;direction:auto}
+.face{position:relative;width:64px;height:64px;border-radius:50%;animation:bob 2.6s ease-in-out infinite}
+.fcard:nth-child(2) .face{animation-delay:-.6s}.fcard:nth-child(3) .face{animation-delay:-1.2s}.fcard:nth-child(4) .face{animation-delay:-1.8s}
+.eye{position:absolute;top:20px;width:15px;height:15px;border-radius:50%;background:#fff;overflow:hidden;animation:blink 4s infinite}
+.eye.l{left:13px}.eye.r{right:13px}
+.pupil{position:absolute;left:4px;top:4px;width:7px;height:7px;border-radius:50%;background:#1b1b1b;transition:transform .08s}
+@keyframes blink{0%,46%,50%,100%{transform:scaleY(1)}48%{transform:scaleY(.1)}}
+.mouth{position:absolute;left:50%;bottom:12px;width:22px;height:9px;margin-left:-11px;border-radius:0 0 12px 12px;background:#3b1d1d}
+.talking .mouth{animation:talk .25s infinite alternate}
+@keyframes talk{to{height:3px;border-radius:6px}}
+.nose{position:absolute;left:50%;top:30px;width:11px;height:10px;margin-left:-5px;border-radius:5px 9px 9px 5px;background:inherit;border:2px solid rgba(0,0,0,.18);box-shadow:inset -3px -2px 0 rgba(0,0,0,.08);filter:brightness(.96);z-index:1;transform-origin:0 50%;transition:width 1.2s cubic-bezier(.3,1.6,.5,1)}
+.fcard.liar .nose{width:46px}
+.bubble-say{position:absolute;top:-14px;inset-inline-end:-6px;background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:2px 9px;font-size:.78rem;font-weight:800;white-space:nowrap;animation:pop .3s}
+.fcard.truth{border-color:var(--good);background:color-mix(in srgb,var(--good) 14%,var(--panel))}
+.fcard.truth .face{animation:dance .5s 4}
+.fcard.away{opacity:.25;transform:translateY(16px) scale(.94)}
+.fcard.laugh .face{animation:wiggle .2s 6}
+@media (max-width:520px){.faces{grid-template-columns:1fr 1fr;gap:10px}.face{width:54px;height:54px}.eye{top:16px}.mouth{bottom:9px}}
+
+/* ---------- 2. وصّل (match) = بذرة ← ساق ← برعم ---------- */
+.mwrap{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:12px 40px;margin-top:6px}
+.mwrap svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.mcol{display:grid;gap:10px;align-content:start}
+.mterm,.mdef{border:2px solid var(--line);background:var(--chip);border-radius:14px;padding:10px 12px;text-align:start;direction:auto;display:flex;gap:8px;align-items:center}
+.mterm{font-weight:800}
+.mterm .ic,.mdef .ic{font-size:1.4rem;flex:none;display:inline-block}
+.mterm[aria-pressed="true"]{border-color:var(--warn)}
+.mterm.ok,.mdef.ok{border-color:var(--good);background:color-mix(in srgb,var(--good) 14%,var(--panel))}
+.mdef.bloom .ic{animation:pop .6s}
+.leaf-fall{position:absolute;font-size:1.3rem;pointer-events:none;animation:leaffall 1.4s ease-in forwards;z-index:4}
+@keyframes leaffall{to{transform:translate(-30px,120px) rotate(220deg);opacity:0}}
+.flow{stroke-dasharray:4 10;animation:flow .6s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-28}}
+.droop{transition:all .7s ease-in;opacity:0}
+
+/* ---------- 3. بطاقات الذاكرة ---------- */
+.mem{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;perspective:800px}
+@media (max-width:520px){.mem{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.mc{position:relative;min-height:96px;border:0;background:none;padding:0;cursor:pointer;transform-style:preserve-3d;transition:transform .45s}
+.mc.open{transform:rotateY(180deg)}
+.mc .side-a,.mc .side-b{position:absolute;inset:0;border-radius:14px;display:grid;place-items:center;padding:8px;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:2px solid var(--line)}
+.mc .side-a{background:color-mix(in srgb,var(--brand) 20%,var(--panel));font-size:2rem}
+.mc .side-b{background:var(--chip);transform:rotateY(180deg);font-size:.88rem;font-weight:700;direction:auto}
+.mc.done .side-b{border-color:var(--good);background:color-mix(in srgb,var(--good) 16%,var(--panel))}
+.mc.oops{animation:wiggle .25s 3}
+
+/* ---------- 4. ركّب الاسم ---------- */
+.clue{border-radius:14px;padding:10px 14px;background:color-mix(in srgb,var(--warn) 12%,var(--panel));font-weight:700;margin-bottom:12px;direction:auto}
+.slots{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:10px 0}
+.lslot{width:46px;height:52px;border:2px dashed var(--line);border-radius:12px;display:grid;place-items:center;font-size:1.5rem;font-weight:800;background:var(--bg)}
+.lslot.filled{border-style:solid;border-color:var(--brand)}
+.lslot.gap{border:0;background:none;width:18px}
+.tiles{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.tile{width:46px;height:52px;border-radius:12px;border:2px solid var(--line);background:var(--chip);font-size:1.5rem;font-weight:800;cursor:pointer;display:grid;place-items:center;position:relative}
+.skin-garden .tile{border-radius:50% 4px 50% 4px;background:color-mix(in srgb,var(--leaf) 22%,var(--panel))}
+.tile.spin{animation:spinback .6s}
+@keyframes spinback{50%{transform:rotate(200deg) scale(.8)}}
+.word-done{font-family:"Noto Kufi Arabic",sans-serif;font-size:2rem;font-weight:800;text-align:center;color:var(--good);animation:pop .6s}
+
+/* ---------- 5. صح ولا غلط (سحب البطاقة) ---------- */
+.tfzone{position:relative;display:grid;place-items:center;min-height:210px;margin:6px 0 10px;padding:0 64px}
+#deck{display:grid;width:100%;justify-items:center}
+.tfside{position:absolute;top:50%;transform:translateY(-50%);font-weight:800;font-size:1.05rem;opacity:.75;pointer-events:none}
+.tfside.yes{right:0;color:var(--good)}.tfside.no{left:0;color:var(--bad)}
+.tfcard{grid-area:1/1;position:relative;width:min(320px,100%);min-height:170px;border-radius:18px;border:2px solid var(--line);background:var(--panel);box-shadow:0 8px 20px rgba(0,0,0,.08);display:grid;place-items:center;padding:26px 16px 16px;text-align:center;font-weight:700;direction:auto;touch-action:none;cursor:grab;transition:transform .35s,opacity .35s}
+.tfcard.under{transform:translateY(8px) scale(.96);opacity:.6}
+.tfcard .tfn{position:absolute;top:8px;inset-inline-start:12px;font-size:.8rem;color:var(--muted)}
+@media (max-width:520px){.tfzone{padding:0 46px}.tfside{font-size:.85rem}}
+.tfbtns{display:flex;justify-content:center;gap:12px}
+
+/* ---------- 6. الجسر ---------- */
+.stage{display:block;width:100%;height:auto;margin:8px 0}
+.stage.small{max-width:380px;margin:8px auto}
+.chip.star{border-color:var(--warn)}
+#br{max-width:640px;margin:8px auto}
+#br .plank{cursor:pointer}
+.bridge-shake{animation:bshake .5s}
+@keyframes bshake{20%{transform:translate(-4px,1px)}40%{transform:translate(4px,-1px)}60%{transform:translate(-3px,1px)}80%{transform:translate(3px,0)}}
+
+/* ---------- 7. صلّح السلسلة (القطار) ---------- */
+.train{display:flex;flex-wrap:wrap;gap:8px;align-items:flex-end;justify-content:center;padding:10px 0 4px;transition:transform 1.6s ease-in}
+.wagon{position:relative;border:2px solid var(--line);background:var(--chip);border-radius:12px 12px 6px 6px;padding:10px 12px 18px;min-width:86px;text-align:center;font-weight:800;cursor:pointer;direction:auto}
+.wagon::before,.wagon::after{content:"";position:absolute;bottom:-9px;width:16px;height:16px;border-radius:50%;background:#333;border:3px solid #888}
+.wagon::before{left:12px}.wagon::after{right:12px}
+.wagon.engine{background:color-mix(in srgb,var(--brand) 25%,var(--panel));cursor:default}
+.wagon.gap{border-style:dashed;background:transparent;color:var(--muted)}
+.wagon.picked{border-color:var(--bad)}
+.wagon.honk{animation:shake .4s}
+.wagon .say{position:absolute;top:-30px;left:50%;transform:translateX(-50%);background:var(--panel);border:1.5px solid var(--line);border-radius:10px;padding:1px 8px;font-size:.78rem;white-space:nowrap;animation:pop .3s}
+.train.go{transform:translateX(-120%)}
+
+/* ---------- 8. الباب بوجه ---------- */
+.doorbox{position:relative;width:min(300px,90%);margin:6px auto 10px;height:230px;perspective:900px}
+.behind{position:absolute;inset:14px 34px 0;border-radius:10px;background:color-mix(in srgb,var(--sun) 30%,var(--panel));display:grid;place-items:center;align-content:center;gap:6px;text-align:center;padding:8px}
+.behind .who{font-family:"Noto Kufi Arabic",sans-serif;font-weight:800;font-size:1.15rem;border-radius:12px;padding:4px 12px;background:var(--brand);color:#fff;opacity:0;transform:scale(.5);transition:all .5s .4s}
+.behind .friends{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.behind .friends span{border-radius:10px;padding:2px 8px;background:var(--panel);font-weight:700;font-size:.85rem;animation:pop .5s}
+.behind .line{font-weight:700;font-size:.9rem;opacity:0;transition:opacity .4s .9s}
+.door{position:absolute;inset:14px 34px 0;border-radius:10px;background:#8B5A2B;border:6px solid #5E3A1F;transform-origin:left center;transition:transform 1.1s ease-in-out;display:grid;justify-items:center;align-content:start;padding-top:18px;gap:4px}
+.skin-garden .door{background:repeating-linear-gradient(90deg,#7A4D2B 0 12px,#6d4426 12px 14px);border-color:#4f2f17}
+.door .dface{position:relative;width:96px;height:56px}
+.door .eye{top:4px;width:20px;height:20px}.door .eye.l{left:16px}.door .eye.r{right:16px}
+.door .pupil{left:6px;top:6px;width:9px;height:9px}
+.door .mouth{bottom:2px;width:30px;margin-left:-15px;height:11px}
+.door .dname{color:#fff;font-weight:800;font-size:1rem;text-shadow:0 1px 2px rgba(0,0,0,.5)}
+.door .locks{display:flex;gap:6px;font-size:1.6rem}
+.door .lk.drop{animation:lockdrop .8s forwards}
+@keyframes lockdrop{to{transform:translateY(120px) rotate(70deg);opacity:0}}
+.door.giggle{animation:wiggle .18s 6}
+.doorbox.open .door{transform:rotateY(-105deg)}
+.doorbox.open .who,.doorbox.open .line{opacity:1;transform:none}
+.keys .chip::before{content:"🔑 "}
+.chip.bent{transform:skewX(-18deg) rotate(-8deg)}
+
+/* ---------- 9. ضوّي الطرق ---------- */
+.dest{cursor:pointer}
+.dest text{font-weight:800}
+.dest.lit circle{fill:color-mix(in srgb,var(--good) 30%,var(--panel));stroke:var(--good)}
+.dest.nope{opacity:.35}
+
+/* ---------- 10. المصعد ---------- */
+.lift{display:grid;grid-template-columns:minmax(0,1fr) 128px;gap:10px;align-items:stretch;max-width:520px;margin:6px auto}
+.floors{display:grid;gap:6px}
+.floor{border:2px solid var(--line);border-radius:10px;min-height:42px;display:flex;align-items:center;justify-content:center;gap:6px;font-weight:800;background:var(--chip);position:relative;direction:auto}
+.floor .fl{position:absolute;inset-inline-start:8px;font-size:.75rem;color:var(--muted);font-weight:600}
+.floor.me{background:var(--brand);color:#fff;border-color:var(--brand)}
+.floor.me .fl{color:#e8f1f2}
+.floor.filled{border-color:var(--good);background:color-mix(in srgb,var(--good) 14%,var(--panel));animation:pop .4s}
+.floor.glow{box-shadow:0 0 0 3px var(--sun)}
+.skin-garden .floors{background:linear-gradient(90deg,transparent 46%,color-mix(in srgb,var(--leaf) 50%,transparent) 46% 54%,transparent 54%);border-radius:10px}
+.shaft{position:relative;border:2px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--chip) 50%,var(--panel))}
+.car{position:absolute;left:6px;right:6px;height:62px;border-radius:10px;background:var(--panel);border:2px solid var(--brand);display:grid;place-items:center;font-size:.8rem;font-weight:800;text-align:center;padding:2px;transition:top 1s ease-in-out;overflow:hidden}
+.car .doors{position:absolute;inset:0;display:flex}
+.car .doors i{flex:1;background:color-mix(in srgb,var(--brand) 35%,var(--panel));transition:transform .4s}
+.car.opened .doors i:first-child{transform:translateX(-100%)}.car.opened .doors i:last-child{transform:translateX(100%)}
+.car .rider{position:relative;z-index:1;direction:auto}
+.liftbtns{display:flex;justify-content:center;gap:10px;margin-top:8px}
+.cat{position:absolute;inset:0;display:grid;place-items:center;z-index:2;font-size:.74rem;line-height:1.3;font-weight:800;background:var(--panel);padding:2px 4px;text-align:center;animation:pop .3s}
+
+/* ---------- 11. الدخيل ---------- */
+.aliens{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:40px}
+@media (max-width:520px){.aliens{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.alien{position:relative;border:2px solid var(--line);border-radius:18px 18px 12px 12px;background:var(--chip);padding:22px 6px 10px;text-align:center;font-weight:800;cursor:pointer;direction:auto;transition:transform 1.2s ease-in,opacity 1.2s}
+.alien::before{content:"";position:absolute;top:-14px;left:50%;width:3px;height:16px;background:var(--muted);transform:translateX(-50%)}
+.alien::after{content:"";position:absolute;top:-20px;left:50%;width:10px;height:10px;border-radius:50%;background:var(--warn);transform:translateX(-50%);animation:bob 1.4s infinite}
+.alien .ae{font-size:1.6rem;display:block}
+.alien.beam{transform:translateY(-160px) scale(.3);opacity:0}
+.alien.angry{animation:shake .4s}
+.alien .say{position:absolute;top:-40px;left:50%;transform:translateX(-50%);background:var(--panel);border:1.5px solid var(--line);border-radius:10px;padding:1px 8px;font-size:.78rem;white-space:nowrap;animation:pop .3s;z-index:3}
+.ufo{position:absolute;top:0;font-size:2.2rem;transition:left 1s ease;z-index:4}
+.beamlight{position:absolute;width:70px;margin-left:-35px;background:linear-gradient(rgba(242,179,61,.55),rgba(242,179,61,0));clip-path:polygon(35% 0,65% 0,100% 100%,0 100%);z-index:3;animation:pop .3s}
+
+/* ---------- 12. مين أنا؟ ---------- */
+.mystery{display:flex;align-items:center;gap:12px;justify-content:center;margin:6px 0 10px}
+.mask{font-size:2.6rem;display:inline-block}
+.mask.off{animation:dance .5s 3}
+.cluelist{display:grid;gap:8px;margin-bottom:10px}
+.cl{border-radius:12px;padding:8px 12px;background:color-mix(in srgb,var(--warn) 12%,var(--panel));font-weight:700;direction:auto}
+.cl.new{animation:pop .4s}
+.cl.hidden{background:var(--chip);color:var(--muted);animation:none}
+.suspects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.sus{border:2px solid var(--line);border-radius:14px;padding:10px;background:var(--chip);font-weight:800;cursor:pointer;text-align:center;direction:auto;transition:opacity .6s,transform .6s}
+.sus.out{opacity:.25;transform:translateX(30px)}
+.sus.win{border-color:var(--good);background:color-mix(in srgb,var(--good) 16%,var(--panel))}
+
+/* ---------- 13. اضبط ---------- */
+.mood{font-size:4.2rem;text-align:center;line-height:1.1;transition:transform .3s}
+.mood.bump{transform:scale(1.15)}
+.slider{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;margin:10px 0}
+.slider input{width:100%;accent-color:var(--brand);height:28px}
+.ov{font-weight:800;font-variant-numeric:tabular-nums;text-align:center}
+.moodtxt{text-align:center;color:var(--muted);min-height:1.6em}
+</style>

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>سيرفر الشرح التفاعلي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@600;700&family=IBM+Plex+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* the server's front page: the books on the server + a box to send a new graph. Plain HTML + JS, no AI. */
+:root{--bg:#F5F3EE;--panel:#FFFFFF;--ink:#1F2A30;--muted:#5D6A70;--line:#DDD8CE;--chip:#EFEBE3;--accent:#0E6E62;--accent-ink:#fff;--good:#24804F;--bad:#B8322A;--new:#7A45B8;
+  --font-display:"Readex Pro",system-ui,sans-serif;--font-body:"IBM Plex Sans Arabic",Tahoma,"Segoe UI",system-ui,sans-serif;--r:14px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12171A;--panel:#1A2125;--ink:#E6ECEE;--muted:#9DAAB0;--line:#2E393D;--chip:#232C30;--accent:#46BBA9;--accent-ink:#062420;--good:#55C487;--bad:#F07269;--new:#B79BF0;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#12171A;--panel:#1A2125;--ink:#E6ECEE;--muted:#9DAAB0;--line:#2E393D;--chip:#232C30;--accent:#46BBA9;--accent-ink:#062420;--good:#55C487;--bad:#F07269;--new:#B79BF0;color-scheme:dark}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);line-height:1.65;font-size:15px}
+.wrap{max-width:1040px;margin:0 auto;padding-inline:16px;padding-block:22px 56px;display:grid;gap:16px}
+h1,h2,h3{font-family:var(--font-display);line-height:1.3;margin:0;text-wrap:balance}
+h1{font-size:clamp(1.5rem,3.4vw,2.1rem)}h2{font-size:1.12rem}
+.eyebrow{margin:0;color:var(--accent);font-weight:700;font-size:.82rem;letter-spacing:.04em}
+.lede{margin:4px 0 0;color:var(--muted);max-width:70ch}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.btn{border:0;background:var(--accent);color:var(--accent-ink);border-radius:10px;padding:10px 16px;font:inherit;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;gap:6px;align-items:center;min-height:42px}
+.btn.alt{background:var(--panel);color:var(--ink);border:1.5px solid var(--line)}
+.btn.warn{background:var(--bad);color:#fff}
+.btn[disabled]{opacity:.5;cursor:wait}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:grid;gap:10px;min-width:0}
+.small{color:var(--muted);font-size:.86rem;margin:0}
+textarea{width:100%;min-height:120px;font:13px/1.5 ui-monospace,Menlo,Consolas,monospace;direction:ltr;border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--bg);color:var(--ink)}
+.drop{border:2px dashed var(--line);border-radius:12px;padding:14px;text-align:center;color:var(--muted);cursor:pointer}
+.drop.on{border-color:var(--accent);color:var(--accent)}
+label.ck{display:inline-flex;gap:8px;align-items:center;min-height:40px;cursor:pointer}
+input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent)}
+.out{border-radius:12px;padding:12px 14px;background:var(--chip)}
+.out.ok{border-inline-start:4px solid var(--good)}.out.bad{border-inline-start:4px solid var(--bad);color:var(--bad);font-weight:700}
+.books{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,230px),1fr));gap:10px}
+.book{border:1px solid var(--line);border-radius:12px;padding:12px;display:grid;gap:6px;background:var(--panel);align-content:start}
+.book header{display:flex;gap:10px;align-items:center}
+.book .em{font-size:1.7rem;line-height:1;width:42px;height:42px;display:grid;place-items:center;background:var(--chip);border-radius:12px;flex:none}
+.book h3{font-size:.98rem}
+.tag{display:inline-block;border-radius:999px;padding:1px 10px;font-size:.78rem;font-weight:700;background:var(--chip)}
+.tag.new{background:color-mix(in srgb,var(--new) 16%,var(--panel));color:var(--new)}
+.book .row .btn{min-height:38px;padding:6px 12px;font-size:.9rem}
+code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.85em;background:var(--chip);border-radius:6px;padding:1px 6px;direction:ltr;unicode-bidi:embed}
+</style></head>
+<body><main class="wrap">
+  <header>
+    <p class="eyebrow">الشرح التفاعلي · FastAPI</p>
+    <h1>سيرفر الشرح التفاعلي</h1>
+    <p class="lede">ابعت <b>أي جراف</b>، وبيطلع الشرح كامل: المشاهد، الفعاليات الخمس، الأفلام، وأصوات كل مرحلة عمرية. و<b>المادة الجديدة</b> بتاخد <b>صوت وشخصيات خاصين فيها</b>.</p>
+  </header>
+  <div class="row"><a class="btn" href="/explain">📖 افتح كل الكتب</a><a class="btn alt" href="/docs">🧾 كل الطلبات (docs)</a></div>
+
+  <section class="card" aria-labelledby="h-new">
+    <h2 id="h-new">➕ جراف جديد</h2>
+    <p class="small">نفس شكل جرافات المنصة: كتاب ← وحدة ← موضوع ← درس ← مفاهيم، ولكل مفهوم معنى، وللكتاب صف (<code>book.grade</code>) ومادة (<code>book.subject</code>). أمثلة: <code>02_question_factory/*_book_graph.json</code>.</p>
+    <div class="drop" id="drop" tabindex="0" role="button">📂 اسحب ملف الجراف (JSON) لهون، أو اكبس لتختاره<input type="file" id="file" accept=".json,application/json" hidden></div>
+    <textarea id="graph" placeholder='{"book": {"id": "...", "title": "...", "subject": "...", "grade": 7}, "nodes": [...], ...}' aria-label="الجراف (JSON)"></textarea>
+    <div class="row"><label class="ck"><input type="checkbox" id="llm"> ✨ الموديل يحسّن الفقرات (بده مفتاح على السيرفر)</label>
+      <button class="btn" id="go">⚙️ ولّد الشرح</button></div>
+    <div id="out" hidden></div>
+  </section>
+
+  <section class="card" aria-labelledby="h-books">
+    <div class="row" style="justify-content:space-between"><h2 id="h-books">📚 الكتب على السيرفر</h2><span class="small" id="count"></span></div>
+    <div class="books" id="books"><p class="small">⏳ لحظة…</p></div>
+  </section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const esc=t=>String(t??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const STAGE={kids:"🌈 الصغار",junior:"🧭 ابتدائي عليا",teen:"🔬 إعدادي",senior:"📐 ثانوي"};
+const KNOWN=[["math","🔢"],["رياضيات","🔢"],["physic","🧲"],["فيزياء","🧲"],["chem","⚗️"],["كيمياء","⚗️"],["biolog","🧬"],["أحياء","🧬"],["science","🌱"],["علوم","🌱"],["geograph","🌍"],["جغرافيا","🌍"],["history","📜"],["تاريخ","📜"],["arab","🔤"],["عربي","🔤"],["english","🔤"],["لغة","🔤"]];
+const NICE={"✦hex":"⬢","✦star":"⭐","✦cloud":"☁️","✦shield":"🛡️","✦drop":"💧","✦gem":"💎"};
+const emblemOf=b=>{const id=b.identity||{};if(id.new&&id.emblem)return NICE[id.emblem]||id.emblem;const s=String(b.subject||"").toLowerCase();return (KNOWN.find(([w])=>s.includes(w))||[0,"📘"])[1];};
+async function loadBooks(){
+  try{const r=await fetch("/books");const list=await r.json();if(!r.ok)throw new Error(list.detail||r.status);
+    $("count").textContent=list.length+" كتاب";
+    $("books").innerHTML=list.length?list.map(b=>{const id=b.identity||{};
+      return `<article class="book"><header><span class="em" aria-hidden="true">${esc(emblemOf(b))}</span><div><h3>${esc(b.title)}</h3><span class="small">${b.grade?"صف "+esc(b.grade)+" · ":""}${esc(STAGE[b.stage]||"")}</span></div></header>
+        <div class="row">${id.new?`<span class="tag new">🆕 ${esc(id.label)}</span>`:""}<span class="tag">${esc(b.scenes)} مشهد</span></div>
+        <div class="row"><a class="btn" href="${esc(b.page_url||"/explain/"+b.book_id)}">افتح الشرح ←</a><button class="btn alt del" data-id="${esc(b.book_id)}">🗑️ احذف</button></div></article>`;}).join(""):`<p class="small">لسا ما في كتب. ابعت جراف فوق.</p>`;
+    document.querySelectorAll(".del").forEach(x=>x.addEventListener("click",()=>del(x)));
+  }catch(e){$("books").innerHTML=`<p class="out bad">ما قدرت أجيب الكتب: ${esc(e.message)}</p>`;}
+}
+async function del(btn){                       /* two clicks: the first asks «متأكد؟» (no pop-up windows) */
+  if(!btn.classList.contains("warn")){btn.classList.add("warn");btn.textContent="متأكد؟ اكبس كمان";setTimeout(()=>{btn.classList.remove("warn");btn.textContent="🗑️ احذف";},4000);return;}
+  btn.disabled=true;const r=await fetch("/books/"+encodeURIComponent(btn.dataset.id),{method:"DELETE"});if(!r.ok)btn.textContent="ما انحذف";loadBooks();
+}
+function readFile(f){if(!f)return;const rd=new FileReader();rd.onload=()=>{$("graph").value=rd.result;};rd.readAsText(f,"utf-8");}
+$("drop").addEventListener("click",()=>$("file").click());
+$("drop").addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();$("file").click();}});
+$("file").addEventListener("change",e=>readFile(e.target.files[0]));
+["dragenter","dragover"].forEach(t=>$("drop").addEventListener(t,e=>{e.preventDefault();$("drop").classList.add("on");}));
+["dragleave","drop"].forEach(t=>$("drop").addEventListener(t,e=>{e.preventDefault();$("drop").classList.remove("on");}));
+$("drop").addEventListener("drop",e=>readFile(e.dataTransfer.files[0]));
+$("go").addEventListener("click",async()=>{
+  const out=$("out");out.hidden=false;let graph;
+  try{graph=JSON.parse($("graph").value);}catch(e){out.className="out bad";out.textContent="الجراف مش JSON صحيح: "+e.message;return;}
+  $("go").disabled=true;out.className="out";out.textContent="⏳ بعمل الشرح…";
+  try{const r=await fetch("/explanations/generate",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({graph,use_llm:$("llm").checked})});
+    const j=await r.json();if(!r.ok)throw new Error(typeof j.detail==="string"?j.detail:JSON.stringify(j.detail));
+    const id=j.identity||{},snd=id.sound?` · صوتها: <b>${esc(id.sound.instr)}</b>`:"";
+    out.className="out ok";
+    out.innerHTML=`✅ <b>«${esc(j.title)}»</b>: ${j.lessons.length} درس · <b>${j.scenes} مشهد</b> · ${esc(STAGE[j.stage]||"")}
+      ${id.new?`<br>🆕 مادة جديدة: <b>${esc(NICE[id.emblem]||id.emblem)} ${esc(id.label)}</b> · شخصيتها «${esc(id.mascot_name)}»${snd}`:""}
+      ${j.warnings&&j.warnings.length?`<br><span class="small">⚠️ ${j.warnings.length} ملاحظة (مشاهد انشالت لأنها ما نجحت بالفحص مع الجراف)</span>`:""}
+      <div class="row" style="margin-top:8px"><a class="btn" href="${esc(j.page_url)}">📖 افتح الشرح ←</a></div>`;
+    loadBooks();
+  }catch(e){out.className="out bad";out.textContent="ما زبط: "+e.message;}
+  finally{$("go").disabled=false;}
+});
+loadBooks();
+</script></body></html>

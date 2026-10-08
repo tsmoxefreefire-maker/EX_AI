@@ -1,0 +1,55 @@
+<style>
+/* 35: true/false with hungry monsters */
+.tfstage{display:grid;grid-template-columns:110px minmax(0,1fr) 110px;gap:10px;align-items:center}
+@media (max-width:520px){.tfstage{grid-template-columns:84px minmax(0,1fr) 84px}}
+.monster{border:0;background:none;cursor:pointer;display:grid;justify-items:center;gap:2px;padding:0;font-weight:800}
+.monster .mon{width:100%;height:auto;overflow:visible}
+.monster.yes b{color:var(--good)}.monster.no b{color:var(--bad)}
+.monster .mouth{transform-box:fill-box;transform-origin:center}
+.monster.chew .mouth{animation:chew .16s 6 alternate}@keyframes chew{to{transform:scaleY(.25)}}
+.monster.chew .mon{animation:wiggle .2s 3}
+.monster.spit .mon{animation:shake .45s}
+.monster.over .mon{transform:scale(1.08)}
+.tfmid{display:grid;justify-items:center;gap:8px;min-width:0}
+.tfspeaker .ch.big{width:70px;height:70px}
+.tfcard2{position:relative;background:var(--panel);border:2px solid var(--line);border-radius:16px;padding:12px 14px;font-weight:700;text-align:center;max-width:320px;touch-action:none;cursor:grab;transition:transform .45s,opacity .45s}
+.tfcard2::before{content:"";position:absolute;top:-9px;left:50%;margin-left:-8px;border:8px solid transparent;border-bottom-color:var(--line);border-top:0}
+.tfcard2.toYes{transform:translateX(150px) scale(.2);opacity:0}.tfcard2.toNo{transform:translateX(-150px) scale(.2);opacity:0}
+[dir="rtl"] .tfcard2.toYes{transform:translateX(150px) scale(.2)}
+.tfplant{display:flex;align-items:center;gap:6px;font-size:1.8rem}.tfplant small{font-size:.8rem;color:var(--muted)}
+.ch .snose{display:none}
+.liar .ch .snose,.liar.ch .snose{display:inline;transform-box:fill-box;transform-origin:0 50%;animation:nose 1s cubic-bezier(.3,1.6,.5,1) forwards}
+@keyframes nose{from{transform:scaleX(1)}to{transform:scaleX(4.2)}}
+/* 30: adjust — guess first, see after */
+.adj{display:flex;align-items:center;justify-content:center;gap:14px;margin:8px 0}
+.adjplant{font-size:3.6rem;transition:transform .5s,filter .5s}
+.adjplant.low{transform:rotate(-14deg) translateY(6px);filter:saturate(.3)}
+.adjplant.high{transform:scaleY(.8) translateY(10px);filter:hue-rotate(40deg) saturate(.5)}
+.adjplant.ok{animation:jump .5s 3}
+.adjq{font-weight:800;font-size:1.05rem}
+/* 38: who am I — the masked character says the clues */
+.mystery2{display:flex;align-items:center;gap:12px;justify-content:center;margin-bottom:10px}
+.mysch .ch.big{width:84px;height:84px}
+.mysch.unmask .char{animation:unmask .45s}@keyframes unmask{50%{transform:scale(1.2) rotate(-10deg)}}
+.saybox{position:relative;background:var(--panel);border:2px solid var(--line);border-radius:16px;padding:10px 14px;font-weight:700;max-width:360px;direction:auto}
+.saybox::before{content:"";position:absolute;top:50%;inset-inline-start:-9px;margin-top:-8px;border:8px solid transparent;border-inline-end-color:var(--line);border-inline-start:0}
+.saybox.pop2{animation:pop .4s}
+/* 37: the bridge car */
+#carbody.shiver{animation:shiver .09s infinite}@keyframes shiver{50%{transform:translateX(1.5px)}}   /* the shiver is on the inner group: the outer one keeps the car's position */
+/* 36: small celebration */
+.spark{position:absolute;color:var(--warn);font-size:1.2rem;pointer-events:none;animation:spark 1.1s ease-out forwards;z-index:5}
+@keyframes spark{0%{transform:scale(.2);opacity:0}40%{transform:scale(1.4);opacity:1}100%{transform:scale(.6) translateY(-30px);opacity:0}}
+.mascot.pat .m-body{animation:wiggle .6s 2}
+/* 29: discovered wagon blushes, sweats and jumps off */
+.wagon.busted{background:color-mix(in srgb,#F28AA8 45%,var(--panel));animation:wiggle .15s 4}
+.sweatdrop{position:absolute;top:2px;inset-inline-end:6px;width:10px;height:13px;background:#7CC6F2;border:1.5px solid #3b2a1a;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;animation:sweat .6s infinite}
+@keyframes sweat{50%{transform:translateY(6px);opacity:.4}}
+.wagon.jumpoff{animation:jumpoff .8s ease-in forwards}@keyframes jumpoff{30%{transform:translateY(-30px) rotate(-12deg)}100%{transform:translate(40px,60px) rotate(30deg);opacity:0}}
+/* 31: a drawn leaf sways down */
+.leaf-fall2{position:absolute;font-size:1.4rem;pointer-events:none;z-index:4;animation:leafsway 2s ease-in forwards}
+@keyframes leafsway{0%{transform:translate(0,0) rotate(0)}25%{transform:translate(-18px,30px) rotate(-30deg)}50%{transform:translate(14px,60px) rotate(25deg)}75%{transform:translate(-12px,95px) rotate(-20deg)}100%{transform:translate(8px,130px) rotate(15deg);opacity:0}}
+</style>
+<style>
+.lifted{visibility:hidden}   /* you are holding it: it is not in its place any more */
+#br .plank.wobble{animation:wobble .14s infinite}@keyframes wobble{50%{transform:translateY(2px) rotate(.8deg)}}
+</style>

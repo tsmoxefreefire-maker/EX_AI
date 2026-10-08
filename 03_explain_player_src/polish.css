@@ -1,0 +1,74 @@
+<style>
+/* ===== polish (Oct 2026): bubbles on top, soft spotlight, cards, lens, dialogue ===== */
+/* 💬 bubble: its own top layer, fades in (no jump), a tail points at who speaks */
+#saylayer .bub{animation:bubin .28s ease-out}
+@keyframes bubin{from{opacity:0}to{opacity:1}}
+#saylayer .bub rect{fill:var(--panel)!important;stroke:var(--brand)!important;stroke-width:2!important;filter:drop-shadow(0 2px 3px rgba(0,0,0,.18))}
+#saylayer .bub .btail{fill:var(--panel);stroke:var(--brand);stroke-width:2;stroke-linejoin:round}
+#saylayer .bub text{fill:var(--ink)!important;font-weight:800!important;font-size:13.5px}
+/* 🔦 soft spotlight: lighter dark, feathered edge, fades in and out */
+.spotdim{fill:#0b1020;opacity:.46}
+#spot{animation:spotin .4s ease-out;transition:opacity .35s}#spot.off{opacity:0}
+@keyframes spotin{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){#saylayer .bub,#spot{animation:none}}
+</style>
+<style>
+/* 🎴 cards: 2 by 2 (never a lonely card, never one word per line), the back keeps its question, text in the middle */
+.cards2{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px;max-width:620px!important;margin:10px auto!important;padding:0 4px}
+.cards2.n1{grid-template-columns:minmax(0,420px)!important;justify-content:center}
+@media (min-width:640px){.cards2.n3{grid-template-columns:repeat(3,minmax(0,1fr))!important;max-width:720px!important}}
+@media (max-width:639px){.cards2 .card2b:last-child:nth-child(odd){grid-column:1/-1}}   /* 3 cards on a phone: the last one takes the whole row, never alone in half a row */
+.card2b{min-height:128px!important;padding:14px!important;display:flex!important;align-items:center;justify-content:center;overflow-wrap:normal!important;word-break:normal;hyphens:none}
+/* ROOT CAUSE: the memory game also uses «.face» (64×64px, round, bobbing) → the card's text was squeezed / spilled. Scope it: */
+.card2b .face{display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:6px;width:100%!important;height:auto!important;border-radius:0!important;animation:none!important;position:static!important;line-height:1.7}
+.card2b .face[hidden]{display:none!important}
+.card2b .fq{font-size:1.08rem;font-weight:900}
+.card2b .bq{font-size:.78rem;font-weight:800;color:var(--muted);border-bottom:1px dashed var(--line);padding-bottom:4px}
+.card2b .bt{font-weight:700;line-height:1.75;font-size:.98rem}
+.card2b .bt .kw{white-space:nowrap}
+.card2b:hover{border-color:var(--brand)}
+@media (max-width:420px){.card2b{min-height:116px!important;padding:10px!important}.card2b .bt{font-size:.92rem}}
+</style>
+<style>.nwr{white-space:nowrap}</style>
+<style>
+/* 🔍 lens: a soft cloudy fog (not a flat grey block); a found fact comes out of the fog, whole */
+.fog{opacity:.96!important;transition:opacity 1s}.fog.gone2{opacity:0!important}
+#found .fact{opacity:1;animation:factin .45s ease-out}
+@keyframes factin{from{opacity:0}to{opacity:1}}
+.fact rect{filter:drop-shadow(0 2px 3px rgba(0,0,0,.15))}
+/* 🗣️ dialogue: the whole talk is visible (no half-cut first line) */
+.talk{max-height:none!important;overflow:visible!important}
+/* 🎤 interview: the chat box shows only when there is a chat */
+.chatbox[hidden]{display:none!important}
+</style>
+<style>
+/* 🧩 the piece you drag stays VISIBLE (a questions-game rule «.lifted{visibility:hidden}» was hiding it) and looks picked up */
+.xnode.lifted{visibility:visible!important;cursor:grabbing}
+.xnode.lifted .xbody{filter:drop-shadow(0 6px 6px rgba(0,0,0,.28))}
+.xnode.piece{cursor:grab}
+/* 🎞️ an animation must never fight a group's place: shake the BODY, not the positioned group (it was jumping to the corner) */
+.pa.shake{animation:none!important}.pa.shake>.xbody{animation:shake .45s 2}
+</style>
+<style>
+/* 🔍 lens: no automatic tour; a small «move me» hint until the student's first touch */
+#lens .lenshint{display:none}
+#lens.hintme .lenshint{display:inline;animation:hintpulse 1.4s ease-in-out infinite}
+#lens .lenshint rect{fill:var(--brand)}#lens .lenshint text{fill:#fff;font-weight:800;font-size:14px}
+@keyframes hintpulse{50%{opacity:.55}}
+/* ⏳ before/after: a line that says in words what the picture shows */
+.baexp{max-width:620px;margin:6px auto 2px;padding:8px 14px;border-radius:12px;background:var(--chip);font-weight:700;text-align:center;line-height:1.8;min-height:1.8em}
+@media (prefers-reduced-motion:reduce){#lens.hintme .lenshint{animation:none}}
+</style>
+<style>
+@media (max-width:520px){.slider2{flex-wrap:wrap;justify-content:space-between}.slider2 input{order:3;flex:1 1 100%}}
+</style>
+<style>
+.xwrap.laykeep .xstage{max-width:440px;margin-inline:auto}   /* batch 28: the phone turned sideways mid-scene, the tall layout stays (not giant) */
+</style>
+<style>
+.stghead{font-size:.95rem;font-weight:800;margin:16px 0 6px;padding:7px 10px;border-radius:10px;background:var(--chip);color:var(--brand)}   /* batch 29: the age-stage heading in the books list */
+.stghead:first-child{margin-top:0}.stghead small{font-weight:600;opacity:.75}
+</style>
+<style>
+.xname.astag{font-size:12px;fill:var(--muted);pointer-events:none;-webkit-user-select:none;user-select:none}.xname.astag.gone{display:none}#xs text{-webkit-user-select:none;user-select:none}   /* batch 29: the puzzle: each shadow shows its NAME (similar pictures never confuse) */
+</style>
